@@ -1,0 +1,8 @@
+{
+  "extends": "@passcard/tsconfig/base.tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.tsx", "src/**/*.test.ts", "test"]
+}

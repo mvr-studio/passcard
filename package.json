@@ -1,0 +1,22 @@
+{
+  "name": "passcard",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Tomasz Marciniak <tomek@mvr.studio>",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "storybook": "turbo run storybook"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7",
+    "turbo": "^1.8.8",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {}
+}
