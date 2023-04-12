@@ -1,17 +1,19 @@
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <span>Passcard</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
-  },
-  chat: {
-    link: 'https://discord.com',
+    link: 'https://github.com/shuding/nextra-docs-template'
   },
   docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'Created by MVR Studio'
   },
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s – Passcard'
+    }
+  }
 }
 
 export default config

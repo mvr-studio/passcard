@@ -1,5 +1,6 @@
-import { createExoUi } from "@mvr-studio/exo-ui";
+import { createExoUi } from '@mvr-studio/exo-ui'
 
-export const { Button, Modal, Heading, Text, Stack } = createExoUi();
+export const { Button, Modal, Heading, Text, Stack, Box, Switch, Label, AspectRatio, SimpleGrid, Flex, useDisclosure } =
+  createExoUi()
 
-export * from "./components";
+export { ConnectWalletModal, ConnectWalletButton, WalletTile } from './components/index'
