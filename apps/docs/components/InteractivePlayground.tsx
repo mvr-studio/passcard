@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useView, Compiler, Editor, Error } from 'react-view'
 import dedent from 'dedent'
 import presetTypescript from '@babel/preset-typescript'
-import vsDark from 'prism-react-renderer/themes/vsDark'
-import vsLight from 'prism-react-renderer/themes/vsLight'
+import darkTheme from 'prism-react-renderer/themes/vsDark'
+import lightTheme from 'prism-react-renderer/themes/vsLight'
 import { Box, Stack, Text } from '.'
 import '@fontsource/jetbrains-mono'
 import { useColorScheme } from '../hooks/useColorScheme'
@@ -62,7 +62,7 @@ export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygro
         <Editor
           {...params.editorProps}
           language="tsx"
-          theme={isDark ? vsDark : vsLight}
+          theme={isDark ? darkTheme : lightTheme}
           className={styles.editorOverrides}
         />
       </Box>

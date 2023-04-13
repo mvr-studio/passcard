@@ -1,0 +1,27 @@
+:root {
+  --shiki-color-text: #000000 !important;
+  --shiki-color-background: #ffffff !important;
+  --shiki-token-constant: rgb(129, 31, 63) !important;
+  --shiki-token-string: rgb(163, 21, 21) !important;
+  --shiki-token-comment: rgb(0, 128, 0) !important;
+  --shiki-token-keyword: rgb(0, 0, 255) !important;
+  --shiki-token-parameter: rgb(255, 0, 0) !important;
+  --shiki-token-function: rgb(0, 0, 255) !important;
+  --shiki-token-string-expression: rgb(163, 21, 21) !important;
+  --shiki-token-punctuation: rgb(4, 81, 165) !important;
+  --shiki-token-link: rgb(0, 112, 193) !important;
+}
+
+.dark {
+  --shiki-color-text: #9cdcfe !important;
+  --shiki-color-background: #1e1e1e !important;
+  --shiki-token-constant: rgb(100, 102, 149) !important;
+  --shiki-token-string: rgb(206, 145, 120) !important;
+  --shiki-token-comment: rgb(106, 153, 85) !important;
+  --shiki-token-keyword: rgb(86, 156, 214) !important;
+  --shiki-token-parameter: rgb(156, 220, 254) !important;
+  --shiki-token-function: rgb(220, 220, 170) !important;
+  --shiki-token-string-expression: rgb(206, 145, 120) !important;
+  --shiki-token-punctuation: rgb(212, 212, 212) !important;
+  --shiki-token-link: #808080 !important;
+}

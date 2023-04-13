@@ -4,7 +4,7 @@ import { Button, ConnectWalletModal, useDisclosure } from '../../'
 interface ConnectWalletButtonProps {
   buttonProps?: React.ComponentProps<typeof Button>
   children?: React.ReactNode
-  onWalletChosen: (walletName: string) => void
+  onWalletChosen: (walletName: string) => Promise<void>
 }
 
 export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {

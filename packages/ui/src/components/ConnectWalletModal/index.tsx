@@ -5,14 +5,14 @@ import { Modal, Button, Heading, Stack, SimpleGrid, WalletTile, Box } from '../.
 interface ConnectWalletModalProps {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
-  onWalletChosen: (walletName: string) => void
+  onWalletChosen: (walletName: string) => Promise<void>
 }
 
 export const ConnectWalletModal = ({ isOpen, setIsOpen, onWalletChosen }: ConnectWalletModalProps) => {
   const { fetchWallets, wallets } = useCardanoWallets()
 
-  const handleWalletChosen = (walletName: string) => {
-    onWalletChosen(walletName)
+  const handleWalletChosen = async (walletName: string) => {
+    await onWalletChosen(walletName)
     setIsOpen(false)
   }
 
