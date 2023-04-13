@@ -11,6 +11,11 @@ interface ConnectWalletModalProps {
 export const ConnectWalletModal = ({ isOpen, setIsOpen, onWalletChosen }: ConnectWalletModalProps) => {
   const { fetchWallets, wallets } = useCardanoWallets()
 
+  const handleWalletChosen = (walletName: string) => {
+    onWalletChosen(walletName)
+    setIsOpen(false)
+  }
+
   useEffect(() => {
     setTimeout(() => fetchWallets(), 1000)
   }, [])
@@ -30,7 +35,7 @@ export const ConnectWalletModal = ({ isOpen, setIsOpen, onWalletChosen }: Connec
                     name={wallet.name}
                     walletName={wallet.walletName}
                     icon={wallet.icon}
-                    onClick={onWalletChosen}
+                    onClick={handleWalletChosen}
                   />
                 ))}
               </SimpleGrid>

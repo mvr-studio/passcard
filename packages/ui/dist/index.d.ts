@@ -2,8 +2,8 @@ import * as _radix_ui_react_aspect_ratio from '@radix-ui/react-aspect-ratio';
 import * as react from 'react';
 import react__default from 'react';
 import * as _radix_ui_react_dialog from '@radix-ui/react-dialog';
-import * as _stitches_react_types_styled_component from '@stitches/react/types/styled-component';
 import * as _stitches_react_types_css_util from '@stitches/react/types/css-util';
+import * as _stitches_react_types_styled_component from '@stitches/react/types/styled-component';
 
 interface ConnectWalletModalProps {
     isOpen: boolean;
@@ -28,10 +28,77 @@ interface WalletTileProps {
 }
 declare const WalletTile: ({ icon, name, walletName, onClick }: WalletTileProps) => JSX.Element;
 
-declare const Button: _stitches_react_types_styled_component.StyledComponent<"button", {
-    size?: "lg" | "sm" | undefined;
-    scheme?: "primary" | "ghost" | undefined;
-}, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;
+declare const Button: _stitches_react_types_styled_component.StyledComponent<"button", _stitches_react_types_styled_component.StyledComponentProps<[{
+    display: string;
+    color: string;
+    alignItems: string;
+    justifyContent: string;
+    borderRadius: string;
+    backgroundColor: string;
+    paddingLeft: string;
+    paddingRight: string;
+    paddingTop: string;
+    paddingBottom: string;
+    cursor: string;
+    transition: string;
+    border: string;
+    borderColor: string;
+    '&[disabled]': {
+        opacity: number;
+        cursor: string;
+    };
+    '&:hover': {
+        backgroundColor: string;
+    };
+    '&:active': {
+        backgroundColor: string;
+    };
+    variants: {
+        size: {
+            sm: {
+                paddingLeft: string;
+                paddingRight: string;
+                paddingTop: string;
+                paddingBottom: string;
+                fontSize: string;
+            };
+            lg: {
+                paddingLeft: string;
+                paddingRight: string;
+                paddingTop: string;
+                paddingBottom: string;
+            };
+        };
+        scheme: {
+            primary: {
+                backgroundColor: string;
+                color: string;
+                '&:hover': {
+                    backgroundColor: string;
+                };
+                '&:active': {
+                    backgroundColor: string;
+                };
+            };
+            ghost: {
+                backgroundColor: string;
+                '&:hover': {
+                    backgroundColor: string;
+                };
+                '&:active': {
+                    backgroundColor: string;
+                };
+            };
+        };
+    };
+    appearance: string;
+    fontFamily: string;
+    fontSize: string;
+    padding: number;
+    margin: number;
+    boxSizing: string;
+    width: string;
+}]>, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;
 declare const Modal: {
     Root: react.FC<_radix_ui_react_dialog.DialogProps>;
     Portal: react.FC<_radix_ui_react_dialog.DialogPortalProps>;
@@ -40,9 +107,27 @@ declare const Modal: {
     Content: _stitches_react_types_styled_component.StyledComponent<react.ForwardRefExoticComponent<_radix_ui_react_dialog.DialogContentProps & react.RefAttributes<HTMLDivElement>>, {}, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;
     Close: _stitches_react_types_styled_component.StyledComponent<react.ForwardRefExoticComponent<_radix_ui_react_dialog.DialogCloseProps & react.RefAttributes<HTMLButtonElement>>, {}, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;
 };
-declare const Heading: _stitches_react_types_styled_component.StyledComponent<"h1", {
-    size?: "xl" | "lg" | undefined;
-}, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;
+declare const Heading: _stitches_react_types_styled_component.StyledComponent<"h1", _stitches_react_types_styled_component.StyledComponentProps<[{
+    color: string;
+    fontWeight: string;
+    fontSize: string;
+    variants: {
+        size: {
+            xl: {
+                fontSize: string;
+            };
+            lg: {
+                fontSize: string;
+            };
+        };
+    };
+    appearance: string;
+    fontFamily: string;
+    padding: number;
+    margin: number;
+    boxSizing: string;
+    width: string;
+}]>, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;
 declare const Text: _stitches_react_types_styled_component.StyledComponent<"p", {}, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;
 declare const Stack: any;
 declare const Box: _stitches_react_types_styled_component.StyledComponent<react.ComponentType<any>, {}, {}, _stitches_react_types_css_util.CSS<{}, {}, {}, {}>>;

@@ -1,68 +1,41 @@
-var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-
 // src/index.ts
 import { createExoUi } from "@mvr-studio/exo-ui";
 
 // src/components/ConnectWalletModal/index.tsx
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useCardanoWallets } from "@mvr-studio/use-dapp-connector";
-import { jsx, jsxs } from "react/jsx-runtime";
 var ConnectWalletModal = ({ isOpen, setIsOpen, onWalletChosen }) => {
   const { fetchWallets, wallets } = useCardanoWallets();
+  const handleWalletChosen = (walletName) => {
+    onWalletChosen(walletName);
+    setIsOpen(false);
+  };
   useEffect(() => {
     setTimeout(() => fetchWallets(), 1e3);
   }, []);
-  return /* @__PURE__ */ jsx(Modal.Root, { open: isOpen, onOpenChange: setIsOpen, children: /* @__PURE__ */ jsxs(Modal.Portal, { children: [
-    /* @__PURE__ */ jsx(Modal.Overlay, {}),
-    /* @__PURE__ */ jsx(Modal.Content, { children: /* @__PURE__ */ jsxs(Stack, { css: { gap: "1rem" }, children: [
-      /* @__PURE__ */ jsx(Heading, { size: "lg", children: "Connect Wallet" }),
-      wallets.length > 0 ? /* @__PURE__ */ jsx(SimpleGrid, { columns: { "@base": 5 }, css: { gap: "$sm" }, children: wallets.map((wallet) => /* @__PURE__ */ jsx(
-        WalletTile,
-        {
-          name: wallet.name,
-          walletName: wallet.walletName,
-          icon: wallet.icon,
-          onClick: onWalletChosen
-        },
-        wallet.walletName
-      )) }) : /* @__PURE__ */ jsx(Box, { children: "No compatible wallets found." }),
-      /* @__PURE__ */ jsx(Modal.Close, { asChild: true, css: { position: "absolute", top: "1rem", right: "1.5rem" }, children: /* @__PURE__ */ jsx(Button, { "aria-label": "Close", size: "sm", scheme: "ghost", css: { width: "2rem" }, children: "\u{1D5EB}" }) })
-    ] }) })
-  ] }) });
+  return /* @__PURE__ */ React.createElement(Modal.Root, { open: isOpen, onOpenChange: setIsOpen }, /* @__PURE__ */ React.createElement(Modal.Portal, null, /* @__PURE__ */ React.createElement(Modal.Overlay, null), /* @__PURE__ */ React.createElement(Modal.Content, null, /* @__PURE__ */ React.createElement(Stack, { css: { gap: "1rem" } }, /* @__PURE__ */ React.createElement(Heading, { size: "lg" }, "Connect Wallet"), wallets.length > 0 ? /* @__PURE__ */ React.createElement(SimpleGrid, { columns: { "@base": 5 }, css: { gap: "$sm" } }, wallets.map((wallet) => /* @__PURE__ */ React.createElement(
+    WalletTile,
+    {
+      key: wallet.walletName,
+      name: wallet.name,
+      walletName: wallet.walletName,
+      icon: wallet.icon,
+      onClick: handleWalletChosen
+    }
+  ))) : /* @__PURE__ */ React.createElement(Box, null, "No compatible wallets found."), /* @__PURE__ */ React.createElement(Modal.Close, { asChild: true, css: { position: "absolute", top: "1rem", right: "1.5rem" } }, /* @__PURE__ */ React.createElement(Button, { "aria-label": "Close", size: "sm", scheme: "ghost", css: { width: "2rem" } }, "\u{1D5EB}"))))));
 };
 
 // src/components/ConnectWalletButton/index.tsx
-import { Fragment, jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
+import React2 from "react";
 var ConnectWalletButton = (props) => {
   const { isOpen, onOpen, setIsOpen } = useDisclosure();
-  return /* @__PURE__ */ jsxs2(Fragment, { children: [
-    /* @__PURE__ */ jsx2(ConnectWalletModal, { isOpen, setIsOpen, onWalletChosen: props.onWalletChosen }),
-    /* @__PURE__ */ jsx2(Button, __spreadProps(__spreadValues({ onClick: onOpen }, props.buttonProps), { children: props.children || "Connect Wallet" }))
-  ] });
+  return /* @__PURE__ */ React2.createElement(React2.Fragment, null, /* @__PURE__ */ React2.createElement(ConnectWalletModal, { isOpen, setIsOpen, onWalletChosen: props.onWalletChosen }), /* @__PURE__ */ React2.createElement(Button, { onClick: onOpen, ...props.buttonProps }, props.children || "Connect Wallet"));
 };
 
 // src/components/WalletTile/index.tsx
-import { jsx as jsx3, jsxs as jsxs3 } from "react/jsx-runtime";
+import React3 from "react";
 var WalletTile = ({ icon, name, walletName, onClick }) => {
-  return /* @__PURE__ */ jsx3(AspectRatio, { ratio: 1, children: /* @__PURE__ */ jsxs3(
+  return /* @__PURE__ */ React3.createElement(AspectRatio, { ratio: 1 }, /* @__PURE__ */ React3.createElement(
     Flex,
     {
       css: {
@@ -75,25 +48,23 @@ var WalletTile = ({ icon, name, walletName, onClick }) => {
         justifyContent: "center",
         alignItems: "center"
       },
-      onClick: () => onClick(walletName),
-      children: [
-        /* @__PURE__ */ jsx3(Box, { as: "img", src: icon, css: { height: "2rem" } }),
-        /* @__PURE__ */ jsx3(
-          Text,
-          {
-            css: {
-              textAlign: "center",
-              textTransform: "capitalize",
-              marginTop: "$xs",
-              fontSize: "$sm",
-              fontWeight: "$semibold"
-            },
-            children: name
-          }
-        )
-      ]
-    }
-  ) });
+      onClick: () => onClick(walletName)
+    },
+    /* @__PURE__ */ React3.createElement(Box, { as: "img", src: icon, css: { height: "2rem" } }),
+    /* @__PURE__ */ React3.createElement(
+      Text,
+      {
+        css: {
+          textAlign: "center",
+          textTransform: "capitalize",
+          marginTop: "$xs",
+          fontSize: "$sm",
+          fontWeight: "$semibold"
+        }
+      },
+      name
+    )
+  ));
 };
 
 // src/index.ts

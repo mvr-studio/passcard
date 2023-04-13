@@ -6,8 +6,8 @@ export const ExampleConnectWalletButton = () => {
     () => {
       const onWalletChosen = async (walletName: string) => {
         const walletApi = await window.cardano[walletName].enable()
-        const balance = await walletApi.getBalance()
-        logger.log(balance)
+        const addresses = await walletApi.getUsedAddresses()
+        logger.log({ address: addresses[0] })
       }
       return (
         <ConnectWalletButton onWalletChosen={onWalletChosen}>

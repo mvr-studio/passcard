@@ -8,8 +8,8 @@ export const ExampleConnectWalletModal = () => {
       const { isOpen, onToggle } = useDisclosure()
       const onWalletChosen = async (walletName: string) => {
         const walletApi = await window.cardano[walletName].enable()
-        const balance = await walletApi.getBalance()
-        logger.log(balance)
+        const addresses = await walletApi.getUsedAddresses()
+        logger.log({ address: addresses[0] })
       }
       return (
         <Box css={{ padding: '$md' }}>

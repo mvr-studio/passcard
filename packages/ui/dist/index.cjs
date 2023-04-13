@@ -1,25 +1,9 @@
-"use strict";
+var __create = Object.create;
 var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
@@ -32,6 +16,14 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.ts
@@ -57,47 +49,40 @@ module.exports = __toCommonJS(src_exports);
 var import_exo_ui = require("@mvr-studio/exo-ui");
 
 // src/components/ConnectWalletModal/index.tsx
-var import_react = require("react");
+var import_react = __toESM(require("react"), 1);
 var import_use_dapp_connector = require("@mvr-studio/use-dapp-connector");
-var import_jsx_runtime = require("react/jsx-runtime");
 var ConnectWalletModal = ({ isOpen, setIsOpen, onWalletChosen }) => {
   const { fetchWallets, wallets } = (0, import_use_dapp_connector.useCardanoWallets)();
+  const handleWalletChosen = (walletName) => {
+    onWalletChosen(walletName);
+    setIsOpen(false);
+  };
   (0, import_react.useEffect)(() => {
     setTimeout(() => fetchWallets(), 1e3);
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal.Root, { open: isOpen, onOpenChange: setIsOpen, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Modal.Portal, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal.Overlay, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal.Content, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Stack, { css: { gap: "1rem" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Heading, { size: "lg", children: "Connect Wallet" }),
-      wallets.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SimpleGrid, { columns: { "@base": 5 }, css: { gap: "$sm" }, children: wallets.map((wallet) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        WalletTile,
-        {
-          name: wallet.name,
-          walletName: wallet.walletName,
-          icon: wallet.icon,
-          onClick: onWalletChosen
-        },
-        wallet.walletName
-      )) }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Box, { children: "No compatible wallets found." }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal.Close, { asChild: true, css: { position: "absolute", top: "1rem", right: "1.5rem" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, { "aria-label": "Close", size: "sm", scheme: "ghost", css: { width: "2rem" }, children: "\u{1D5EB}" }) })
-    ] }) })
-  ] }) });
+  return /* @__PURE__ */ import_react.default.createElement(Modal.Root, { open: isOpen, onOpenChange: setIsOpen }, /* @__PURE__ */ import_react.default.createElement(Modal.Portal, null, /* @__PURE__ */ import_react.default.createElement(Modal.Overlay, null), /* @__PURE__ */ import_react.default.createElement(Modal.Content, null, /* @__PURE__ */ import_react.default.createElement(Stack, { css: { gap: "1rem" } }, /* @__PURE__ */ import_react.default.createElement(Heading, { size: "lg" }, "Connect Wallet"), wallets.length > 0 ? /* @__PURE__ */ import_react.default.createElement(SimpleGrid, { columns: { "@base": 5 }, css: { gap: "$sm" } }, wallets.map((wallet) => /* @__PURE__ */ import_react.default.createElement(
+    WalletTile,
+    {
+      key: wallet.walletName,
+      name: wallet.name,
+      walletName: wallet.walletName,
+      icon: wallet.icon,
+      onClick: handleWalletChosen
+    }
+  ))) : /* @__PURE__ */ import_react.default.createElement(Box, null, "No compatible wallets found."), /* @__PURE__ */ import_react.default.createElement(Modal.Close, { asChild: true, css: { position: "absolute", top: "1rem", right: "1.5rem" } }, /* @__PURE__ */ import_react.default.createElement(Button, { "aria-label": "Close", size: "sm", scheme: "ghost", css: { width: "2rem" } }, "\u{1D5EB}"))))));
 };
 
 // src/components/ConnectWalletButton/index.tsx
-var import_jsx_runtime2 = require("react/jsx-runtime");
+var import_react2 = __toESM(require("react"), 1);
 var ConnectWalletButton = (props) => {
   const { isOpen, onOpen, setIsOpen } = useDisclosure();
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(ConnectWalletModal, { isOpen, setIsOpen, onWalletChosen: props.onWalletChosen }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Button, __spreadProps(__spreadValues({ onClick: onOpen }, props.buttonProps), { children: props.children || "Connect Wallet" }))
-  ] });
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement(ConnectWalletModal, { isOpen, setIsOpen, onWalletChosen: props.onWalletChosen }), /* @__PURE__ */ import_react2.default.createElement(Button, { onClick: onOpen, ...props.buttonProps }, props.children || "Connect Wallet"));
 };
 
 // src/components/WalletTile/index.tsx
-var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_react3 = __toESM(require("react"), 1);
 var WalletTile = ({ icon, name, walletName, onClick }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(AspectRatio, { ratio: 1, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+  return /* @__PURE__ */ import_react3.default.createElement(AspectRatio, { ratio: 1 }, /* @__PURE__ */ import_react3.default.createElement(
     Flex,
     {
       css: {
@@ -110,25 +95,23 @@ var WalletTile = ({ icon, name, walletName, onClick }) => {
         justifyContent: "center",
         alignItems: "center"
       },
-      onClick: () => onClick(walletName),
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Box, { as: "img", src: icon, css: { height: "2rem" } }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          Text,
-          {
-            css: {
-              textAlign: "center",
-              textTransform: "capitalize",
-              marginTop: "$xs",
-              fontSize: "$sm",
-              fontWeight: "$semibold"
-            },
-            children: name
-          }
-        )
-      ]
-    }
-  ) });
+      onClick: () => onClick(walletName)
+    },
+    /* @__PURE__ */ import_react3.default.createElement(Box, { as: "img", src: icon, css: { height: "2rem" } }),
+    /* @__PURE__ */ import_react3.default.createElement(
+      Text,
+      {
+        css: {
+          textAlign: "center",
+          textTransform: "capitalize",
+          marginTop: "$xs",
+          fontSize: "$sm",
+          fontWeight: "$semibold"
+        }
+      },
+      name
+    )
+  ));
 };
 
 // src/index.ts
