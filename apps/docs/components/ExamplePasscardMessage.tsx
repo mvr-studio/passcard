@@ -29,14 +29,14 @@ export const ExamplePasscardMessage = () => {
       return (
         <Box>
           <Button onClick={handleStringify}>Stringify</Button>
-          <Box css={{ whiteSpace: 'pre-wrap' }}>
+          <Box css={{ whiteSpace: 'pre-wrap', fontSize: '$sm', marginTop: '$md' }}>
             {result}
           </Box>
         </Box>
       )
     }
   `
-  const scope = { PasscardMessage, TMessage, Box, Button }
+  const scope = { PasscardMessage, Box, Button }
 
   return <InteractivePlayground initialCode={initialCode} scope={scope} />
 }

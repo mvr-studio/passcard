@@ -11,7 +11,7 @@ import styles from './editor.module.css'
 
 interface InteractivePlaygroundProps {
   initialCode: string
-  scope: Record<string, React.FC<any>>
+  scope: Record<string, React.FC<any> | any>
 }
 
 export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygroundProps) => {
