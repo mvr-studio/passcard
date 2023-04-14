@@ -44,7 +44,8 @@ export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygro
         css={{
           ...cardCss,
           overflowY: 'scroll',
-          height: '5rem'
+          minHeight: '5rem',
+          maxHeight: '10rem'
         }}
       >
         <Text css={{ fontSize: '$sm', color: isDark ? '$gray100' : '$gray600' }}>Logs</Text>

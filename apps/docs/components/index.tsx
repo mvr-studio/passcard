@@ -1,3 +1,3 @@
 import { createExoUi } from '@mvr-studio/exo-ui'
 
-export const { Box, Stack, Text, Switch, Label, useDisclosure } = createExoUi()
+export const { Box, Button, Stack, Text, Switch, Label, useDisclosure } = createExoUi()

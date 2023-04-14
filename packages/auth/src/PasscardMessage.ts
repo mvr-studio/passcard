@@ -3,7 +3,7 @@ import { generateNonce } from './utils/generateNonce'
 import * as YAML from 'yaml'
 import { MessageKeySanitizer } from './utils/MessageKeySanitizer'
 
-interface Message {
+export interface TMessage {
   /**
    * RFC 4501 DNS authority.
    */
@@ -64,22 +64,22 @@ interface Message {
 }
 
 export class PasscardMessage {
-  message: Message
+  message: TMessage
 
-  constructor(rawMessage: string | Partial<Message>) {
+  constructor(rawMessage: string | Partial<TMessage>) {
     if (typeof rawMessage === 'string') {
       const messageJson = JSON.parse(rawMessage)
-      const parsedMessage = messageSchema.parse(messageJson) as Message
+      const parsedMessage = messageSchema.parse(messageJson) as TMessage
       this.message = parsedMessage
     } else {
-      const parsedMessage = messageSchema.parse(rawMessage) as Message
+      const parsedMessage = messageSchema.parse(rawMessage) as TMessage
       this.message = parsedMessage
     }
     this.message.nonce = this.message.nonce || generateNonce()
   }
 
   verify() {
-    this.message = messageSchema.parse(this.message) as Message
+    this.message = messageSchema.parse(this.message) as TMessage
   }
 
   stringify() {
