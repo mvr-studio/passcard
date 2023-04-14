@@ -1,6 +1,7 @@
 {
   "index": "Introduction",
-  "components": "Components",
+  "passcard-ui": "@passcard/ui",
+  "passcard-auth": "@passcard/auth",
   "contact": {
     "title": "Contact ↗",
     "type": "page",

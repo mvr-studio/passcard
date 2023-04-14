@@ -12,7 +12,7 @@ export const ExampleConnectWalletModal = () => {
         logger.log({ address: addresses[0] })
       }
       return (
-        <Box css={{ padding: '$md' }}>
+        <Box>
           <Stack direction="horizontal" css={{ alignItems: 'center' }}>
             <Switch id="isOpen" checked={isOpen} onClick={onToggle} />
             <Label htmlFor="isOpen">Modal open</Label>

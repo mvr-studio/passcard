@@ -9,10 +9,11 @@
   "author": "Tomasz Marciniak <tomek@mvr.studio>",
   "license": "MIT",
   "dependencies": {
+    "@passcard/ui": "*",
+    "@passcard/auth": "*",
     "@babel/preset-typescript": "^7.21.4",
     "@fontsource/jetbrains-mono": "^4.5.12",
     "@mvr-studio/exo-ui": "^0.1.1",
-    "@passcard/ui": "*",
     "dayjs": "^1.11.7",
     "dedent": "^0.7.0",
     "next": "^13.0.6",

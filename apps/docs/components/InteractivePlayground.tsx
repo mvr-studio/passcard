@@ -18,7 +18,13 @@ export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygro
   const [logs, setLogs] = useState<string[]>([])
   const { colorMode } = useColorScheme()
   const isDark = colorMode === 'dark'
-  console.log(colorMode)
+
+  const cardCss = {
+    border: '1px solid',
+    borderColor: isDark ? '$gray700' : '$gray200',
+    padding: '$md',
+    borderRadius: '$md'
+  }
 
   const logger = {
     log: (entry: any) => setLogs([JSON.stringify(entry), ...logs])
@@ -31,14 +37,13 @@ export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygro
 
   return (
     <Stack css={{ alignItems: 'stretch' }}>
-      <Compiler {...params.compilerProps} presets={[presetTypescript]} />
+      <Box css={{ ...cardCss }}>
+        <Compiler {...params.compilerProps} presets={[presetTypescript]} />
+      </Box>
       <Stack
         css={{
+          ...cardCss,
           overflowY: 'scroll',
-          border: '1px solid',
-          borderColor: isDark ? '$gray700' : '$gray200',
-          padding: '$sm',
-          borderRadius: '$md',
           height: '5rem'
         }}
       >
@@ -51,11 +56,10 @@ export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygro
       </Stack>
       <Box
         css={{
+          ...cardCss,
+          padding: 0,
           outline: 0,
           fontFamily: '"JetBrains Mono"',
-          border: '1px solid',
-          borderColor: isDark ? '$gray700' : '$gray200',
-          borderRadius: '$md',
           overflow: 'hidden'
         }}
       >

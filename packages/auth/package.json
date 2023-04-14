@@ -1,0 +1,21 @@
+{
+  "name": "@passcard/auth",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Tomasz Marciniak <tomek@mvr.studio>",
+  "scripts": {
+    "build": "tsup",
+    "test:unit": "vitest"
+  },
+  "dependencies": {
+    "@sindresorhus/is": "^5.3.0",
+    "jsonschema": "^1.4.1",
+    "uuid": "^9.0.0",
+    "yaml": "^2.2.1",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "vite": "^4.2.1",
+    "vitest": "^0.30.1"
+  }
+}
