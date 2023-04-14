@@ -61,6 +61,7 @@ export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygro
           padding: 0,
           outline: 0,
           fontFamily: '"JetBrains Mono"',
+          fontSize: '14px',
           overflow: 'hidden'
         }}
       >

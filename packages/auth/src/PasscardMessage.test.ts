@@ -1,7 +1,7 @@
 import { PasscardMessage } from './PasscardMessage'
 import correctMessage from '../test/mocks/correctMessage.json'
 // @ts-ignore - Vite imports the raw contents correctly
-import stringifiedMessage from '../test/mocks/stringifiedMessage.yaml?raw'
+import stringifiedMessage from '../test/mocks/stringifiedMessage.txt?raw'
 
 describe('PasscardMessage', () => {
   describe('rawMessage as string', () => {

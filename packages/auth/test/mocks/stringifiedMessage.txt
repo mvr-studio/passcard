@@ -1,0 +1,13 @@
+example.com wants you to sign data with your Cardano address:
+addr1q9xapj7p8xv3q3km3pnjzvgf0ks0ew8v3uq7hghktyrcu0a6xggv6nnfs7y
+
+This is a sample statement.
+
+Meta:
+Version: 0.0.1
+URI: https://example.com/some-page?param=value
+Network ID: 0
+Nonce: abcdefgh
+Issued At: 2023-04-04T10:30:00Z
+Expiration Time: 2023-04-04T12:30:00Z
+External ID: abcd1234

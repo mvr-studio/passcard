@@ -3,7 +3,7 @@
 A class to manipulate messages for data signing.
 
 ```ts
-import { PasscardMessage, TMessage } from '@passcard/auth'
+import { PasscardMessage, TMessage, fromSanitizedMessage } from '@passcard/auth'
 ```
 
 ## Playground
@@ -30,8 +30,12 @@ passcardMessage.stringify()
 #### Result
 
 ```
-Address: addr1qxtsw4wqagpn9jqh5wqkhupyx9k6q58k7x0ql8pku63ttdmak7sjf0mypuy30hc5usq657rjk57maxt6h4zcrhghssnsml3qp9
-Statement: This is a sample statement.
+example.com wants you to sign data with your Cardano address:
+addr1q9xapj7p8xv3q3km3pnjzvgf0ks0ew8v3uq7hghktyrcu0a6xggv6nnfs7y
+
+This is a sample statement.
+
+Meta:
 Version: 0.0.1
 URI: https://example.com/some-page?param=value
 Network ID: 0
@@ -48,4 +52,28 @@ Throws a Zod error if it's not valid.
 ```ts
 const passcardMessage = new PasscardMessage(message)
 passcardMessage.verify()
+```
+
+## fromSanitizedMessage
+
+For the opposite direction, to parse a human friendly string into a PasscardMessage.
+
+```ts
+const message = `
+example.com wants you to sign data with your Cardano address:
+addr1q9xapj7p8xv3q3km3pnjzvgf0ks0ew8v3uq7hghktyrcu0a6xggv6nnfs7y
+
+This is a sample statement.
+
+Meta:
+Version: 0.0.1
+URI: https://example.com/some-page?param=value
+Network ID: 0
+Nonce: abcdefgh
+Issued At: 2023-04-04T10:30:00Z
+Expiration Time: 2023-04-04T12:30:00Z
+External ID: abcd1234
+`
+const pMessage = fromSanitizedMessage(message)
+pMessage.message.domain // example.com
 ```

@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@sindresorhus/is": "^5.3.0",
+    "dedent": "^0.7.0",
     "jsonschema": "^1.4.1",
     "uuid": "^9.0.0",
     "yaml": "^2.2.1",

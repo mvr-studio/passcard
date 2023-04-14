@@ -1,7 +1,6 @@
 import { messageSchema } from './messageSchema'
 import { generateNonce } from './utils/generateNonce'
-import * as YAML from 'yaml'
-import { MessageKeySanitizer } from './utils/MessageKeySanitizer'
+import { toOutputLiteral } from './utils/toOutputLiteral'
 
 export interface TMessage {
   /**
@@ -83,7 +82,6 @@ export class PasscardMessage {
   }
 
   stringify() {
-    const sanitizedMessage = MessageKeySanitizer.stringify(this.message)
-    return YAML.stringify(sanitizedMessage)
+    return toOutputLiteral(this.message)
   }
 }
