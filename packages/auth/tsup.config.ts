@@ -11,7 +11,8 @@ export default defineConfig([
     bundle: true,
     dts: {
       compilerOptions: {
-        moduleResolution: 'Node'
+        moduleResolution: 'Node',
+        esModuleInterop: true
       }
     }
   }

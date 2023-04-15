@@ -1,2 +1,6 @@
 export { PasscardMessage, TMessage } from './PasscardMessage'
 export { fromSanitizedMessage } from './utils/fromSanitizedMessage'
+export { cardanoBech32FromHex } from './utils/cardanoBech32FromHex'
+export { toHexMessage } from './utils/toHexMessage'
+export { CardanoVerifier } from './verifiers/CardanoVerifier'
+export { MinaVerifier } from './verifiers/MinaVerifier'
