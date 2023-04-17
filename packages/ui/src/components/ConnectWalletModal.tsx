@@ -16,9 +16,16 @@ interface ConnectWalletModalProps {
   mode?: ModalMode
   setIsOpen: (isOpen: boolean) => void
   onChosen: (payload: OnChosenPayload) => Promise<void>
+  setIsLoading: (value: boolean) => void
 }
 
-export const ConnectWalletModal = ({ isOpen, mode = 'wallet', setIsOpen, onChosen }: ConnectWalletModalProps) => {
+export const ConnectWalletModal = ({
+  isOpen,
+  mode = 'wallet',
+  setIsOpen,
+  onChosen,
+  setIsLoading
+}: ConnectWalletModalProps) => {
   const [walletName, setWalletName] = useState<string | null>(null)
   const [step, setStep] = useState<ModalStep>('walletChoice')
   const [addresses, setAddresses] = useState<string[]>([])
@@ -29,17 +36,21 @@ export const ConnectWalletModal = ({ isOpen, mode = 'wallet', setIsOpen, onChose
   }
 
   const handleWalletChosen = async (walletName: string) => {
+    setIsLoading(true)
     setWalletName(walletName)
     if (mode === 'wallet') {
       onChosen({ walletName, address: null })
+      setIsLoading(false)
       return setIsOpen(false)
     }
     await fetchUsedAddresses({ walletName })
+    setIsLoading(false)
     return setStep('addressChoice')
   }
 
   const handleAddressChosen = async (address: string) => {
     setIsOpen(false)
+    setStep('walletChoice')
     return onChosen({ walletName: walletName as string, address })
   }
 
@@ -58,7 +69,9 @@ export const ConnectWalletModal = ({ isOpen, mode = 'wallet', setIsOpen, onChose
               𝗫
             </Button>
           </Modal.Close>
-          {step === 'walletChoice' && <StepWalletChoice onWalletChosen={handleWalletChosen} />}
+          {step === 'walletChoice' && (
+            <StepWalletChoice onWalletChosen={handleWalletChosen} setAreWalletsLoading={setIsLoading} />
+          )}
           {step === 'addressChoice' && (
             <StepAddressChoice onAddressChosen={handleAddressChosen} addresses={addresses} />
           )}

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button, ConnectWalletModal, useDisclosure } from '..'
+import React, { useState } from 'react'
+import { Button, ConnectWalletModal, useDisclosure, Spinner } from '..'
 import { ModalMode, OnChosenPayload } from './ConnectWalletModal'
 
 interface ConnectWalletButtonProps {
@@ -10,12 +10,23 @@ interface ConnectWalletButtonProps {
 }
 
 export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
+  const [isLoading, setIsLoading] = useState(false)
   const { isOpen, onOpen, setIsOpen } = useDisclosure()
   return (
     <>
-      <ConnectWalletModal mode={props.mode} isOpen={isOpen} setIsOpen={setIsOpen} onChosen={props.onChosen} />
+      <ConnectWalletModal
+        mode={props.mode}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        onChosen={props.onChosen}
+        setIsLoading={setIsLoading}
+      />
       <Button onClick={onOpen} {...props.buttonProps}>
-        {props.children || 'Connect Wallet'}
+        {isLoading ? (
+          <Spinner css={{ width: '1.5rem', height: '1.5rem', '&:before': { borderWidth: '2px' } }} />
+        ) : (
+          props.children || 'Connect Wallet'
+        )}
       </Button>
     </>
   )

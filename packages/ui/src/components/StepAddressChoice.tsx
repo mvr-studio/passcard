@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Button, Heading, Stack } from '..'
-import { trimAddress } from '@passcard/auth'
+import { trimAddress, cardanoBech32FromHex } from '@passcard/auth'
 
 interface StepWalletChoiceProps {
   onAddressChosen: (address: string) => Promise<void>
@@ -13,9 +13,13 @@ export const StepAddressChoice = ({ onAddressChosen, addresses }: StepWalletChoi
       <Heading size="lg">Select Address</Heading>
       {addresses.length > 0 ? (
         <Stack css={{ gap: '0.5rem' }}>
-          {addresses.map((address) => (
-            <Button key={address} scheme="ghost" onClick={() => onAddressChosen(address)} css={{ width: '100%' }}>
-              {trimAddress(address)}
+          {addresses.map((address, i) => (
+            <Button
+              key={address}
+              onClick={() => onAddressChosen(address)}
+              css={{ width: '100%', justifyContent: 'flex-start' }}
+            >
+              &rsaquo; {i + 1}: {trimAddress(cardanoBech32FromHex(address))}
             </Button>
           ))}
         </Stack>
