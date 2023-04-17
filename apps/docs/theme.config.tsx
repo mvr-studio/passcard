@@ -1,7 +1,8 @@
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import NextImage from 'next/image'
 
 const config: DocsThemeConfig = {
-  logo: <span>Passcard</span>,
+  logo: <NextImage src="/logo.svg" alt="Logo" width={64} height={40} />,
   project: {
     link: 'https://github.com/mvr-studio/passcard'
   },

@@ -1,0 +1,47 @@
+# Utils
+
+`@passcard/auth` was shipped with utilities to help you build DApps quicker.
+
+## cardanoBech32FromHex
+
+Converts hex Cardano address (for example the address coming from `walletApi.getUsedAddresses`) to Bech32.
+
+```ts
+import { cardanoBech32FromHex } from '@passcard/auth'
+
+cardanoBech32FromHex('00970755...')
+// addr_test1qztsw...
+```
+
+## generateNonce
+
+Generates `uuidv4` random value.
+
+```ts
+import { generateNonce } from '@passcard/auth'
+
+generateNonce()
+// 90e3b1d4-96e3-42f2-bd92-41ea75fca935
+```
+
+## trimAddress
+
+Trims address to play nicely with the UI.
+
+```ts
+import { trimAddress } from '@passcard/auth'
+
+trimAddress('addr_test1qztsw...')
+// addr_test...f3k9
+```
+
+## toHexMessage
+
+Converts given string to hex for `walletApi.signData` purposes.
+
+```ts
+import { toHexMessage } from '@passcard/auth'
+
+toHexMessage('test')
+// 74657374
+```

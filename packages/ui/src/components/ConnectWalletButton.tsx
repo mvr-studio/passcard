@@ -1,17 +1,19 @@
 import React from 'react'
-import { Button, ConnectWalletModal, useDisclosure } from '../../'
+import { Button, ConnectWalletModal, useDisclosure } from '..'
+import { ModalMode, OnChosenPayload } from './ConnectWalletModal'
 
 interface ConnectWalletButtonProps {
+  mode?: ModalMode
   buttonProps?: React.ComponentProps<typeof Button>
   children?: React.ReactNode
-  onWalletChosen: (walletName: string) => Promise<void>
+  onChosen: (payload: OnChosenPayload) => Promise<void>
 }
 
 export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
   const { isOpen, onOpen, setIsOpen } = useDisclosure()
   return (
     <>
-      <ConnectWalletModal isOpen={isOpen} setIsOpen={setIsOpen} onWalletChosen={props.onWalletChosen} />
+      <ConnectWalletModal mode={props.mode} isOpen={isOpen} setIsOpen={setIsOpen} onChosen={props.onChosen} />
       <Button onClick={onOpen} {...props.buttonProps}>
         {props.children || 'Connect Wallet'}
       </Button>

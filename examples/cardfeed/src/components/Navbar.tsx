@@ -4,23 +4,27 @@ declare global {
   }
 }
 
-import { PasscardMessage } from '@passcard/auth'
+import { PasscardMessage, trimAddress } from '@passcard/auth'
 import { Box, Button, Container, Flex, Text, Stack } from '.'
 import dynamic from 'next/dynamic'
 import { cardanoBech32FromHex } from '@passcard/auth'
 import { toHexMessage } from '@passcard/auth'
 import { signIn, useSession, signOut } from 'next-auth/react'
+import { useMemo } from 'react'
+import { OnChosenPayload } from '@passcard/ui'
 
 const ConnectWalletButton = dynamic(() => import('@passcard/ui').then((mod) => mod.ConnectWalletButton), { ssr: false })
 
 export const Navbar = () => {
   const session = useSession()
   console.log(session)
+  const address = session.data?.user.address
 
-  const handleWalletChosen = async (walletName: string) => {
+  const shortAddress = useMemo(() => trimAddress && trimAddress(address as string), [address])
+
+  const handleWalletChosen = async ({ walletName, address }: OnChosenPayload) => {
     const walletApi = await window.cardano[walletName].enable()
-    const addresses = await walletApi.getUsedAddresses()
-    const bech32Address = cardanoBech32FromHex(addresses[0])
+    const bech32Address = cardanoBech32FromHex(address!)
     const message = new PasscardMessage({
       domain: 'example.com',
       address: bech32Address,
@@ -32,7 +36,7 @@ export const Navbar = () => {
     })
     const stringifiedMessage = message.stringify()
     const hexMessage = toHexMessage(stringifiedMessage)
-    const signedMessage = await walletApi.signData(addresses[0], hexMessage)
+    const signedMessage = await walletApi.signData(address, hexMessage)
     await signIn('credentials', {
       message: stringifiedMessage,
       signature: JSON.stringify(signedMessage)
@@ -45,12 +49,18 @@ export const Navbar = () => {
         <Flex css={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <Text css={{ fontSize: '1.25rem', fontWeight: '$semibold' }}>Cardfeed</Text>
           {session.data?.user ? (
-            <Stack direction="horizontal">
-              <Text>{session.data.user?.name}</Text>
-              <Button onClick={() => signOut()}>Sign Out</Button>
+            <Stack direction="horizontal" css={{ alignItems: 'center' }}>
+              <Text css={{ textAlign: 'right' }}>{shortAddress}</Text>
+              <Button onClick={() => signOut()} css={{ width: 'auto', whiteSpace: 'nowrap' }}>
+                Sign Out
+              </Button>
             </Stack>
           ) : (
-            <ConnectWalletButton onWalletChosen={handleWalletChosen} buttonProps={{ css: { maxWidth: '12rem' } }} />
+            <ConnectWalletButton
+              mode="address"
+              onChosen={handleWalletChosen}
+              buttonProps={{ css: { width: 'auto', whiteSpace: 'nowrap' } }}
+            />
           )}
         </Flex>
       </Container>

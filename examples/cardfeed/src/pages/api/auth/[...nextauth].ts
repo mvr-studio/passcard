@@ -43,7 +43,7 @@ const auth: NextApiHandler = async (req, res) => {
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
       async session({ session, token }: { session: any; token: any }) {
-        session.address = token.sub
+        session.user.address = token.sub
         session.user.name = token.sub
         session.user.image = 'https://www.fillmurray.com/128/128'
         return session

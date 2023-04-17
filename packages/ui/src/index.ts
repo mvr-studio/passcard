@@ -6,3 +6,5 @@ export const { Button, Modal, Heading, Text, Stack, Box, Switch, Label, AspectRa
 export { ConnectWalletModal } from './components/ConnectWalletModal'
 export { ConnectWalletButton } from './components/ConnectWalletButton'
 export { WalletTile } from './components/WalletTile'
+
+export type { OnChosenPayload } from './components/ConnectWalletModal'

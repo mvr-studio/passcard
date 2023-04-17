@@ -1,5 +1,5 @@
 import React from 'react'
-import { AspectRatio, Flex, Box, Text } from '../..'
+import { AspectRatio, Flex, Box, Text } from '..'
 
 type WalletName = string
 
@@ -16,7 +16,7 @@ export const WalletTile = ({ icon, name, walletName, onClick }: WalletTileProps)
       <Flex
         css={{
           border: '1px solid',
-          borderColor: '$gray200',
+          borderColor: 'var(--default-input-border-default)',
           cursor: 'pointer',
           height: '100%',
           borderRadius: '$md',

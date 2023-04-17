@@ -5,6 +5,7 @@
   "author": "Tomasz Marciniak <tomek@mvr.studio>",
   "workspaces": [
     "apps/*",
+    "examples/*",
     "packages/*"
   ],
   "scripts": {
