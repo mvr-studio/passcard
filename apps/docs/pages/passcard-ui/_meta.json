@@ -1,4 +1,4 @@
 {
-  "connectWalletButton": "ConnectWalletButton",
-  "connectWalletModal": "ConnectWalletModal"
+  "ConnectWalletButton": "ConnectWalletButton",
+  "ConnectWalletModal": "ConnectWalletModal"
 }

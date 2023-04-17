@@ -1,5 +1,7 @@
 # ConnectWalletModal
 
+A standalone wallet connection modal, in case you want to customize how you trigger it.
+
 ```tsx
 import { ConnectWalletModal } from '@passcard/ui'
 ```
@@ -9,3 +11,12 @@ import { ConnectWalletModal } from '@passcard/ui'
 import { ExampleConnectWalletModal } from '../../components/ExampleConnectWalletModal'
 
 <ExampleConnectWalletModal />
+
+## API
+
+| Property  | Type                                         | Default    | Description                                                                                 |
+| --------- | -------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+| isOpen    | `boolean`                                    |            |
+| setIsOpen | (isOpen: boolean) => void                    |            |
+| onChosen  | `({ walletName, address }) => Promise<void>` |            | Callback to get the walletName or a specific address.                                       |
+| mode?     | `"wallet" \| "address"`                      | `"wallet"` | When set to `"address"`, the flow has an additional step to select a specific used address. |

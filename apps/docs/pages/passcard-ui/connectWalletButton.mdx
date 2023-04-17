@@ -1,5 +1,7 @@
 # ConnectWalletButton
 
+A button and connection modal solution to fetch `walletName` or a specific used wallet address for data signing purposes.
+
 ```tsx
 import { ConnectWalletButton } from '@passcard/ui'
 ```
@@ -9,3 +11,11 @@ import { ConnectWalletButton } from '@passcard/ui'
 import { ExampleConnectWalletButton } from '../../components/ExampleConnectWalletButton'
 
 <ExampleConnectWalletButton />
+
+## API
+
+| Property     | Type                                         | Default    | Description                                                                                 |
+| ------------ | -------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+| onChosen     | `({ walletName, address }) => Promise<void>` |            | Callback to get the walletName or a specific address.                                       |
+| mode?        | `"wallet" \| "address"`                      | `"wallet"` | When set to `"address"`, the flow has an additional step to select a specific used address. |
+| buttonProps? | ExoUI/Button styling props                   |            |

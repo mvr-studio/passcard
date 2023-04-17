@@ -6,7 +6,7 @@ export const ExampleConnectWalletModal = () => {
   const initialCode = `
     () => {
       const { isOpen, onToggle } = useDisclosure()
-      const onWalletChosen = async (walletName: string) => {
+      const handleChosen = async ({ walletName }) => {
         const walletApi = await window.cardano[walletName].enable()
         const addresses = await walletApi.getUsedAddresses()
         logger.log({ address: addresses[0] })
@@ -17,7 +17,7 @@ export const ExampleConnectWalletModal = () => {
             <Switch id="isOpen" checked={isOpen} onClick={onToggle} />
             <Label htmlFor="isOpen">Modal open</Label>
           </Stack>
-          <ConnectWalletModal isOpen={isOpen} setIsOpen={onToggle} onWalletChosen={onWalletChosen} />
+          <ConnectWalletModal mode="wallet" isOpen={isOpen} setIsOpen={onToggle} onChosen={handleChosen} />
         </Box>
       )
     }
