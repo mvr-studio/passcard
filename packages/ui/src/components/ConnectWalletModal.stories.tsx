@@ -32,6 +32,26 @@ export const AddressChoice: Story = () => {
   )
 }
 
+export const AllowBlockchains: Story = () => {
+  const { isOpen, onToggle } = useDisclosure()
+  const onChosen = async ({ walletName, address }: OnChosenPayload) => console.log(walletName, address)
+  return (
+    <Box>
+      <Stack direction="horizontal" css={{ alignItems: 'center' }}>
+        <Switch id="isOpen" checked={isOpen} onClick={onToggle} />
+        <Label htmlFor="isOpen">Modal open</Label>
+      </Stack>
+      <ConnectWalletModal
+        mode="address"
+        isOpen={isOpen}
+        setIsOpen={onToggle}
+        onChosen={onChosen}
+        allowedBlockchains={['cardano', 'mina', 'ethereum', 'solana']}
+      />
+    </Box>
+  )
+}
+
 export default {
   title: 'Components / Connect Wallet Modal'
 } satisfies StoryDefault

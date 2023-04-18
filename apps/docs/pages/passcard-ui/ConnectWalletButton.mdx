@@ -14,8 +14,9 @@ import { ExampleConnectWalletButton } from '../../components/ExampleConnectWalle
 
 ## API
 
-| Property     | Type                                         | Default    | Description                                                                                 |
-| ------------ | -------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-| onChosen     | `({ walletName, address }) => Promise<void>` |            | Callback to get the walletName or a specific address.                                       |
-| mode?        | `"wallet" \| "address"`                      | `"wallet"` | When set to `"address"`, the flow has an additional step to select a specific used address. |
-| buttonProps? | ExoUI/Button styling props                   |            |
+| Property     | Type                                         | Default       | Description                                                                                 |
+| ------------ | -------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------- |
+| onChosen     | `({ walletName, address }) => Promise<void>` |               | Callback to get the walletName or a specific address.                                       |
+| mode?        | `"wallet" \| "address"`                      | `"wallet"`    | When set to `"address"`, the flow has an additional step to select a specific used address. |
+| buttonProps? | ExoUI/Button styling props                   |               |
+| blockchains? | `string[]`                                   | `["cardano"]` | Supported values: `["cardano", "mina", "ethereum", "solana"]`                               |

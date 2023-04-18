@@ -1,13 +1,29 @@
 import React from 'react'
 import { Box, Button, Heading, Stack } from '..'
 import { trimAddress, cardanoBech32FromHex } from '@passcard/auth'
+import { iconChevronRight } from '../assets/icons'
+
+interface FormatCardanoAddressProps {
+  address: string
+  index: number
+}
 
 interface StepWalletChoiceProps {
   onAddressChosen: (address: string) => Promise<void>
   addresses: string[]
+  blockchain: string
 }
 
-export const StepAddressChoice = ({ onAddressChosen, addresses }: StepWalletChoiceProps) => {
+export const StepAddressChoice = ({ onAddressChosen, addresses, blockchain }: StepWalletChoiceProps) => {
+  const formatAddress = ({ address, index }: FormatCardanoAddressProps) => {
+    return (
+      <>
+        <Box as="img" src={iconChevronRight} css={{ width: '1.25rem', height: '1.25rem', filter: 'invert(0.5)' }} />{' '}
+        {index + 1}: {trimAddress(address)}
+      </>
+    )
+  }
+
   return (
     <Stack css={{ gap: '1rem' }}>
       <Heading size="lg">Select Address</Heading>
@@ -19,7 +35,9 @@ export const StepAddressChoice = ({ onAddressChosen, addresses }: StepWalletChoi
               onClick={() => onAddressChosen(address)}
               css={{ width: '100%', justifyContent: 'flex-start' }}
             >
-              &rsaquo; {i + 1}: {trimAddress(cardanoBech32FromHex(address))}
+              {blockchain === 'cardano'
+                ? formatAddress({ address: cardanoBech32FromHex(address), index: i })
+                : formatAddress({ address, index: i })}
             </Button>
           ))}
         </Stack>

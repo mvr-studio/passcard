@@ -1,22 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Box, Heading, SimpleGrid, Stack, WalletTile } from '..'
-import { useCardanoWallets } from '@mvr-studio/use-dapp-connector'
+import { useWallets } from '../hooks/useWallets'
 
 interface StepWalletChoiceProps {
-  onWalletChosen: (walletName: string) => Promise<void>
-  setAreWalletsLoading: (value: boolean) => void
+  onWalletChosen: ({ walletName, blockchain }: Record<string, string>) => Promise<void>
+  setAreWalletsLoading?: (value: boolean) => void
+  allowedBlockchains: string[]
 }
 
-export const StepWalletChoice = ({ onWalletChosen, setAreWalletsLoading }: StepWalletChoiceProps) => {
-  const { fetchWallets, wallets } = useCardanoWallets()
-
-  useEffect(() => {
-    setAreWalletsLoading(true)
-    setTimeout(() => {
-      fetchWallets()
-      setAreWalletsLoading(false)
-    }, 1000)
-  }, [])
+export const StepWalletChoice = ({
+  onWalletChosen,
+  setAreWalletsLoading,
+  allowedBlockchains
+}: StepWalletChoiceProps) => {
+  const { wallets } = useWallets({ setAreWalletsLoading, allowedBlockchains })
 
   return (
     <Stack css={{ gap: '1rem' }}>
@@ -29,6 +26,7 @@ export const StepWalletChoice = ({ onWalletChosen, setAreWalletsLoading }: StepW
               name={wallet.name}
               walletName={wallet.walletName}
               icon={wallet.icon}
+              blockchain={wallet.blockchain}
               onClick={onWalletChosen}
             />
           ))}

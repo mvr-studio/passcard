@@ -9,12 +9,10 @@ export const ExampleConnectWalletButton = ({ mode = 'wallet' }: ExampleConnectWa
   const initialCode = `
     () => {
       const handleChosen = async ({ walletName, address }) => {
-        const walletApi = await window.cardano[walletName].enable()
-        const addresses = await walletApi.getUsedAddresses()
-        logger.log({ address: addresses[0] })
+        logger.log({ walletName, address })
       }
       return (
-        <ConnectWalletButton mode="${mode}" onChosen={handleChosen}>
+        <ConnectWalletButton mode="${mode}" onChosen={handleChosen} allowedBlockchains={["cardano", "mina", "ethereum", "solana"]}>
           Connect Wallet
         </ConnectWalletButton>
       )

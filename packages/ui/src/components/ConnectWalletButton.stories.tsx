@@ -19,6 +19,20 @@ export const AddressChoice: Story = () => {
   return <ConnectWalletButton mode="address" onChosen={onChosen} />
 }
 
+export const AllowBlockchains: Story = () => {
+  const onChosen = async ({ walletName, address }: OnChosenPayload) => {
+    console.log(walletName, address)
+  }
+
+  return (
+    <ConnectWalletButton
+      mode="address"
+      onChosen={onChosen}
+      allowedBlockchains={['cardano', 'mina', 'ethereum', 'solana']}
+    />
+  )
+}
+
 export default {
   title: 'Components / Connect Wallet Button'
 } satisfies StoryDefault

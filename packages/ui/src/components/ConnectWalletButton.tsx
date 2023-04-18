@@ -7,6 +7,7 @@ interface ConnectWalletButtonProps {
   buttonProps?: React.ComponentProps<typeof Button>
   children?: React.ReactNode
   onChosen: (payload: OnChosenPayload) => Promise<void>
+  allowedBlockchains?: string[]
 }
 
 export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
@@ -20,6 +21,7 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
         setIsOpen={setIsOpen}
         onChosen={props.onChosen}
         setIsLoading={setIsLoading}
+        allowedBlockchains={props.allowedBlockchains}
       />
       <Button onClick={onOpen} {...props.buttonProps}>
         {isLoading ? (

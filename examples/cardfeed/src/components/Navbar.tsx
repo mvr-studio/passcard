@@ -21,11 +21,12 @@ export const Navbar = () => {
 
   const shortAddress = useMemo(() => trimAddress && trimAddress(address as string), [address])
 
-  const handleWalletChosen = async ({ walletName, address }: OnChosenPayload) => {
+  const handleWalletChosen = async ({ walletName, address, blockchain }: OnChosenPayload) => {
+    if (blockchain !== 'cardano') return alert('Sorry, for now only Cardano works 😅')
     const walletApi = await window.cardano[walletName].enable()
     const bech32Address = cardanoBech32FromHex(address!)
     const message = new PasscardMessage({
-      domain: 'example.com',
+      domain: 'cardfeed.netlify.app',
       address: bech32Address,
       statement: 'Sign in',
       version: '0.0.1',
@@ -59,6 +60,7 @@ export const Navbar = () => {
               mode="address"
               onChosen={handleWalletChosen}
               buttonProps={{ css: { width: 'auto', whiteSpace: 'nowrap' } }}
+              allowedBlockchains={['cardano', 'ethereum', 'mina', 'solana']}
             />
           )}
         </Flex>

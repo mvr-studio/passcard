@@ -7,10 +7,11 @@ interface WalletTileProps {
   icon: string
   name: string
   walletName: WalletName
-  onClick: (walletName: WalletName) => void
+  blockchain: string
+  onClick: ({ walletName, blockchain }: Record<string, string>) => void
 }
 
-export const WalletTile = ({ icon, name, walletName, onClick }: WalletTileProps) => {
+export const WalletTile = ({ icon, name, walletName, blockchain, onClick }: WalletTileProps) => {
   return (
     <AspectRatio ratio={1}>
       <Flex
@@ -24,7 +25,7 @@ export const WalletTile = ({ icon, name, walletName, onClick }: WalletTileProps)
           justifyContent: 'center',
           alignItems: 'center'
         }}
-        onClick={() => onClick(walletName)}
+        onClick={() => onClick({ walletName, blockchain })}
       >
         <Box as="img" src={icon} css={{ height: '2rem' }} />
         <Text
