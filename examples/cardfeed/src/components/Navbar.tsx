@@ -17,7 +17,6 @@ const ConnectWalletButton = dynamic(() => import('@passcard/ui').then((mod) => m
 
 export const Navbar = () => {
   const session = useSession()
-  console.log(session)
   const address = session.data?.user.address
 
   const shortAddress = useMemo(() => trimAddress && trimAddress(address as string), [address])
@@ -45,7 +44,7 @@ export const Navbar = () => {
 
   return (
     <Box css={{ border: '1px solid', borderColor: '$gray200' }}>
-      <Container>
+      <Container css={{ padding: '$sm' }}>
         <Flex css={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <Text css={{ fontSize: '1.25rem', fontWeight: '$semibold' }}>Cardfeed</Text>
           {session.data?.user ? (

@@ -1700,50 +1700,20 @@
     "@types/underscore" "^1.8.13"
     underscore "^1.9.1"
 
-"@mvr-studio/exo-css@*":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-css/-/exo-css-0.0.5.tgz#da08ee9faa421a2e514719618feca33c4090cb08"
-  integrity sha512-k52E5icZVadAaS5n2KHuXznItSs1tiqFYD+EMYHIdrQfjhrMTvxfLa4y1uj1r2GM/UBz7sNncTPdIqsjXUAMEQ==
+"@mvr-studio/exo-css@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-css/-/exo-css-0.0.7.tgz#9e13883791832faa3eb22bc13f33526a49452351"
+  integrity sha512-4dhj0EQmlREUjYRnaHDRKRarKW4P14RRBNJ1WHFMMTRvffY+h2siIKIic7hwFKMwsjFd2Y8pAFQqxm2m9PUOQw==
   dependencies:
     chroma-js "^2.4.2"
     polished "^4.2.2"
 
-"@mvr-studio/exo-css@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.npmjs.org/@mvr-studio/exo-css/-/exo-css-0.0.4.tgz"
-  integrity sha512-Z+CYD+78B2TVpUjzZ/4YP7DOZOSs/POL5x77TFkZ4h1keeqeklYOUB/0lr4iwo2mjtSywijY7oJuhL5zwMRg0Q==
+"@mvr-studio/exo-ui@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-ui/-/exo-ui-0.1.5.tgz#a724c5d44b102de05b88fe663668345aec5a059a"
+  integrity sha512-vo+tLcVCWPj+j+B5au0fa2D4JE761H+IRqiEGsu43L4hTGToHMKTlRVisLjw5VIXQt/zZ2+iUqMe3L1QlwwPBQ==
   dependencies:
-    chroma-js "^2.4.2"
-    polished "^4.2.2"
-
-"@mvr-studio/exo-ui@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-ui/-/exo-ui-0.1.1.tgz#593eb7a7cf8262419a4c0b82115082c0ea6c7f27"
-  integrity sha512-5pbdaf4EgelKgeVj3TI1eb9hgUi223mPE5IvXKEb8wuhVmEVPtvbcK9F6xqAcvWpmQgRcnsPEam58Uhm4F3BTg==
-  dependencies:
-    "@mvr-studio/exo-css" "^0.0.4"
-    "@radix-ui/react-aspect-ratio" "^1.0.2"
-    "@radix-ui/react-avatar" "^1.0.2"
-    "@radix-ui/react-checkbox" "^1.0.3"
-    "@radix-ui/react-dialog" "^1.0.3"
-    "@radix-ui/react-popover" "^1.0.5"
-    "@radix-ui/react-radio-group" "^1.1.2"
-    "@radix-ui/react-switch" "^1.0.2"
-    "@radix-ui/react-tooltip" "^1.0.5"
-    "@stitches/react" "^1.2.8"
-    "@tabler/icons-react" "^2.10.0"
-    chroma-js "^2.4.2"
-    dayjs "^1.11.7"
-    polished "^4.2.2"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-
-"@mvr-studio/exo-ui@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-ui/-/exo-ui-0.1.2.tgz#d040df3d04638ca124f95893fe04509545b95cdf"
-  integrity sha512-Ev8CCDwXSudoILhuypLDqAeC9BRb+WiE/6Cg3l/GSkR/WDYdd23oT6VS5uvRlN6FWsRn6XI0uuAQtDD9ZDDn3Q==
-  dependencies:
-    "@mvr-studio/exo-css" "*"
+    "@mvr-studio/exo-css" "^0.0.7"
     "@radix-ui/react-aspect-ratio" "^1.0.2"
     "@radix-ui/react-avatar" "^1.0.2"
     "@radix-ui/react-checkbox" "^1.0.3"
@@ -2822,7 +2792,7 @@
   resolved "https://registry.npmjs.org/@types/prettier/-/prettier-2.7.2.tgz"
   integrity sha512-KufADq8uQqo1pYKVIYzfKbJfBAc0sOeXqGbFaSpv8MRmC/zXgowNZmFcbngndGk922QDmOASEXUZCaY48gs4cg==
 
-"@types/prop-types@*":
+"@types/prop-types@*", "@types/prop-types@^15.0.0":
   version "15.7.5"
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
@@ -4145,7 +4115,7 @@ date-time@^3.1.0:
 
 dayjs@^1.11.7:
   version "1.11.7"
-  resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.7.tgz"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
   integrity sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==
 
 debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.3, debug@^4.3.4:
@@ -4273,6 +4243,16 @@ detect-node-es@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/detect-node-es/-/detect-node-es-1.1.0.tgz"
   integrity sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ==
+
+dexie-react-hooks@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/dexie-react-hooks/-/dexie-react-hooks-1.1.3.tgz#dfcd723d533172605f06335823b205adf7442cc6"
+  integrity sha512-bXXE1gfYtfuVYTNiOlyam+YVaO8KaqacgRuxFuP37YtpS6o/jxT6KOl5h+hhqY36s0UavlHWbL+HWJFMcQumIg==
+
+dexie@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/dexie/-/dexie-3.2.3.tgz#f35c91ca797599df8e771b998e9ae9669c877f8c"
+  integrity sha512-iHayBd4UYryDCVUNa3PMsJMEnd8yjyh5p7a+RFeC8i8n476BC9wMhVvqiImq5zJZJf5Tuer+s4SSj+AA3x+ZbQ==
 
 diff-sequences@^29.4.3:
   version "29.4.3"
@@ -8448,7 +8428,7 @@ promzard@^1.0.0:
   dependencies:
     read "^2.0.0"
 
-prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.0.0, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -8551,6 +8531,27 @@ react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-markdown@^8.0.7:
+  version "8.0.7"
+  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-8.0.7.tgz#c8dbd1b9ba5f1c5e7e5f2a44de465a3caafdf89b"
+  integrity sha512-bvWbzG4MtOU62XqBx3Xx+zB2raaFFsq4mYiAzfjXJMEz2sixgeAfraA3tvzULF02ZdOMUOKTBFFaZJDDrq+BJQ==
+  dependencies:
+    "@types/hast" "^2.0.0"
+    "@types/prop-types" "^15.0.0"
+    "@types/unist" "^2.0.0"
+    comma-separated-tokens "^2.0.0"
+    hast-util-whitespace "^2.0.0"
+    prop-types "^15.0.0"
+    property-information "^6.0.0"
+    react-is "^18.0.0"
+    remark-parse "^10.0.0"
+    remark-rehype "^10.0.0"
+    space-separated-tokens "^2.0.0"
+    style-to-object "^0.4.0"
+    unified "^10.0.0"
+    unist-util-visit "^4.0.0"
+    vfile "^5.0.0"
 
 react-refresh@^0.14.0:
   version "0.14.0"
@@ -9350,7 +9351,7 @@ strip-literal@^1.0.1:
   dependencies:
     acorn "^8.8.2"
 
-style-to-object@^0.4.1:
+style-to-object@^0.4.0, style-to-object@^0.4.1:
   version "0.4.1"
   resolved "https://registry.npmjs.org/style-to-object/-/style-to-object-0.4.1.tgz"
   integrity sha512-HFpbb5gr2ypci7Qw+IOhnP2zOU7e77b+rzM+wTzXzfi1PrtBCX0E7Pk4wL4iTLnhzZ+JgEGAhX81ebTg/aYjQw==
