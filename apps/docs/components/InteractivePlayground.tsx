@@ -12,9 +12,16 @@ import styles from './editor.module.css'
 interface InteractivePlaygroundProps {
   initialCode: string
   scope: Record<string, React.FC<any> | any>
+  horizontal?: boolean
+  hideLogs?: boolean
 }
 
-export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygroundProps) => {
+export const InteractivePlayground = ({
+  initialCode,
+  scope,
+  horizontal = false,
+  hideLogs = false
+}: InteractivePlaygroundProps) => {
   const [logs, setLogs] = useState<string[]>([])
   const { colorMode } = useColorScheme()
   const isDark = colorMode === 'dark'
@@ -36,28 +43,32 @@ export const InteractivePlayground = ({ initialCode, scope }: InteractivePlaygro
   })
 
   return (
-    <Stack css={{ alignItems: 'stretch' }}>
+    <Stack css={{ flexDirection: horizontal ? 'row' : 'column', alignItems: 'stretch', gap: '1rem' }}>
       <Box css={{ ...cardCss }}>
         <Compiler {...params.compilerProps} presets={[presetTypescript]} />
       </Box>
-      <Stack
-        css={{
-          ...cardCss,
-          overflowY: 'scroll',
-          minHeight: '5rem',
-          maxHeight: '10rem'
-        }}
-      >
-        <Text css={{ fontSize: '$sm', color: isDark ? '$gray100' : '$gray600' }}>Logs</Text>
-        {logs.map((log, i) => (
-          <Text key={i} css={{ fontSize: '$sm', color: isDark ? '$gray100' : '$gray600' }}>
-            {log}
-          </Text>
-        ))}
-      </Stack>
+      {!hideLogs && (
+        <Stack
+          css={{
+            ...cardCss,
+            overflowY: 'scroll',
+            minHeight: '5rem',
+            maxHeight: '10rem'
+          }}
+        >
+          <Text css={{ fontSize: '$sm', color: isDark ? '$gray100' : '$gray600' }}>Logs</Text>
+          {logs.map((log, i) => (
+            <Text key={i} css={{ fontSize: '$sm', color: isDark ? '$gray100' : '$gray600' }}>
+              {log}
+            </Text>
+          ))}
+        </Stack>
+      )}
       <Box
         css={{
           ...cardCss,
+          '@base': { display: 'none' },
+          '@md': { display: 'block' },
           padding: 0,
           outline: 0,
           fontFamily: '"JetBrains Mono"',

@@ -1,7 +1,17 @@
 {
-  "index": "Introduction",
-  "passcard-ui": "@passcard/ui",
-  "passcard-auth": "@passcard/auth",
+  "index": {
+    "title": "Home",
+    "display": "hidden",
+    "type": "page",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "docs": {
+    "title": "Documentation",
+    "type": "page",
+    "href": "/docs"
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",

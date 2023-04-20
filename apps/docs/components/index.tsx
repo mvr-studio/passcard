@@ -1,3 +1,19 @@
 import { createExoUi } from '@mvr-studio/exo-ui'
 
-export const { Box, Button, Stack, Text, Switch, Label, useDisclosure } = createExoUi()
+export const {
+  Box,
+  AspectRatio,
+  SimpleGrid,
+  Heading,
+  Flex,
+  Button,
+  Stack,
+  Container,
+  Text,
+  Switch,
+  Label,
+  useDisclosure,
+  Image
+} = createExoUi()
+export { HomeHero } from './HomeHero'
+export { HomeSupportedPlatforms } from './HomeSupportedPlatforms'
