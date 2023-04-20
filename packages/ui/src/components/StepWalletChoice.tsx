@@ -1,11 +1,13 @@
 import React from 'react'
 import { Box, Heading, SimpleGrid, Stack, WalletTile } from '..'
 import { useWallets } from '../hooks/useWallets'
+import { Blockchain } from '@passcard/auth'
+import { OnWalletChosenProps } from './ConnectWalletModal'
 
 interface StepWalletChoiceProps {
-  onWalletChosen: ({ walletName, blockchain }: Record<string, string>) => Promise<void>
+  onWalletChosen: ({ walletName, blockchain }: OnWalletChosenProps) => Promise<void>
   setAreWalletsLoading?: (value: boolean) => void
-  allowedBlockchains: string[]
+  allowedBlockchains: Blockchain[]
 }
 
 export const StepWalletChoice = ({

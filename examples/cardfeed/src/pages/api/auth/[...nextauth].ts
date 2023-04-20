@@ -1,7 +1,8 @@
-import { CardanoVerifier, fromSanitizedMessage } from '@passcard/auth'
+import { fromSanitizedMessage, parseSignature } from '@passcard/auth'
 import { NextApiHandler } from 'next'
 import NextAuth, { AuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+
 const auth: NextApiHandler = async (req, res) => {
   const providers = [
     CredentialsProvider({
@@ -19,17 +20,14 @@ const auth: NextApiHandler = async (req, res) => {
       async authorize(credentials) {
         if (!credentials?.message) return null
         if (!credentials?.signature) return null
-        const { key, signature } = JSON.parse(credentials.signature)
-        const { message } = fromSanitizedMessage(credentials.message)
-        const isValid = CardanoVerifier.verify({
-          signature,
-          key,
-          message: credentials.message,
-          address: message.address
+        const signature = parseSignature(credentials.signature)
+        const message = fromSanitizedMessage(credentials.message)
+        const isValid = await message.verify({
+          signature: signature
         })
         if (isValid)
           return {
-            id: message.address
+            id: message.getAddress()
           }
         return null
       }

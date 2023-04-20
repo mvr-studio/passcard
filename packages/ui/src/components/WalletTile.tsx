@@ -1,5 +1,7 @@
 import React from 'react'
 import { AspectRatio, Flex, Box, Text } from '..'
+import { Blockchain } from '@passcard/auth'
+import { OnWalletChosenProps } from './ConnectWalletModal'
 
 type WalletName = string
 
@@ -7,8 +9,8 @@ interface WalletTileProps {
   icon: string
   name: string
   walletName: WalletName
-  blockchain: string
-  onClick: ({ walletName, blockchain }: Record<string, string>) => void
+  blockchain: Blockchain
+  onClick: ({ walletName, blockchain }: OnWalletChosenProps) => void
 }
 
 export const WalletTile = ({ icon, name, walletName, blockchain, onClick }: WalletTileProps) => {
@@ -25,7 +27,7 @@ export const WalletTile = ({ icon, name, walletName, blockchain, onClick }: Wall
           justifyContent: 'center',
           alignItems: 'center'
         }}
-        onClick={() => onClick({ walletName, blockchain })}
+        onClick={() => onClick({ walletName, blockchain: blockchain as Blockchain })}
       >
         <Box as="img" src={icon} css={{ height: '2rem' }} />
         <Text

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Button, Heading, Stack } from '..'
-import { trimAddress, cardanoBech32FromHex } from '@passcard/auth'
+import { trimAddress, getBech32FromHex } from '@passcard/auth'
 import { iconChevronRight } from '../assets/icons'
 
 interface FormatCardanoAddressProps {
@@ -36,7 +36,7 @@ export const StepAddressChoice = ({ onAddressChosen, addresses, blockchain }: St
               css={{ width: '100%', justifyContent: 'flex-start' }}
             >
               {blockchain === 'cardano'
-                ? formatAddress({ address: cardanoBech32FromHex(address), index: i })
+                ? formatAddress({ address: getBech32FromHex(address), index: i })
                 : formatAddress({ address, index: i })}
             </Button>
           ))}

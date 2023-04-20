@@ -2,6 +2,7 @@ import React from 'react'
 import type { Story, StoryDefault } from '@ladle/react'
 import { ConnectWalletButton } from './ConnectWalletButton'
 import type { OnChosenPayload } from './ConnectWalletModal'
+import { Blockchain } from '@passcard/auth'
 
 export const Basic: Story = () => {
   const onChosen = async ({ walletName }: OnChosenPayload) => {
@@ -28,7 +29,7 @@ export const AllowBlockchains: Story = () => {
     <ConnectWalletButton
       mode="address"
       onChosen={onChosen}
-      allowedBlockchains={['cardano', 'mina', 'ethereum', 'solana']}
+      allowedBlockchains={[Blockchain.Cardano, Blockchain.Ethereum, Blockchain.Mina, Blockchain.Solana]}
     />
   )
 }

@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { Blockchain } from './types'
 
 enum NetworkId {
   Mainnet = 1,
@@ -9,6 +10,7 @@ const URI_REGEX = /^(?:(?:[^:/?#]+):)?(?:\/\/[^/?#]*)?(?:[^?#]*)(?:\?[^#]*)?(?:#
 
 export const messageSchema = z.object({
   domain: z.string().regex(/[^#?]*/),
+  blockchain: z.nativeEnum(Blockchain),
   address: z.string(),
   statement: z.string().optional(),
   version: z.literal(CURRENT_MESSAGE_VERSION),

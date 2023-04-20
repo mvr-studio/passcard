@@ -3,6 +3,7 @@ import { ConnectWalletModal } from './ConnectWalletModal'
 import type { OnChosenPayload } from './ConnectWalletModal'
 import type { Story, StoryDefault } from '@ladle/react'
 import { Stack, Box, Switch, Label, useDisclosure } from '..'
+import { Blockchain } from '@passcard/auth'
 
 export const Basic: Story = () => {
   const { isOpen, onToggle } = useDisclosure()
@@ -46,7 +47,7 @@ export const AllowBlockchains: Story = () => {
         isOpen={isOpen}
         setIsOpen={onToggle}
         onChosen={onChosen}
-        allowedBlockchains={['cardano', 'mina', 'ethereum', 'solana']}
+        allowedBlockchains={[Blockchain.Cardano, Blockchain.Ethereum, Blockchain.Mina, Blockchain.Solana]}
       />
     </Box>
   )

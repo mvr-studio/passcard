@@ -14,10 +14,10 @@ import { ExampleConnectWalletModal } from '../../components/ExampleConnectWallet
 
 ## API
 
-| Property     | Type                                         | Default       | Description                                                                                 |
-| ------------ | -------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------- |
-| isOpen       | `boolean`                                    |               |
-| setIsOpen    | (isOpen: boolean) => void                    |               |
-| onChosen     | `({ walletName, address }) => Promise<void>` |               | Callback to get the walletName or a specific address.                                       |
-| mode?        | `"wallet" \| "address"`                      | `"wallet"`    | When set to `"address"`, the flow has an additional step to select a specific used address. |
-| blockchains? | `string[]`                                   | `["cardano"]` | Supported values: `["cardano", "mina", "ethereum", "solana"]`                               |
+| Property            | Type                                                     | Default                | Description                                                                                       |
+| ------------------- | -------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------- |
+| isOpen              | `boolean`                                                |                        |
+| setIsOpen           | (isOpen: boolean) => void                                |                        |
+| onChosen            | `({ walletName, address, blockchain }) => Promise<void>` |                        | Callback to get the walletName or a specific address.                                             |
+| mode?               | `"wallet" \| "address"`                                  | `"wallet"`             | When set to `"address"`, the flow has an additional step to select a specific used address.       |
+| allowedBlockchains? | `string[]`                                               | `[Blockchain.Cardano]` | Supported values: `[Blockchain.Cardano, Blockchain.Mina, Blockchain.Ethereum, Blockchain.Solana]` |

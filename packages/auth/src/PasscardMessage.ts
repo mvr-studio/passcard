@@ -1,12 +1,22 @@
 import { messageSchema } from './messageSchema'
+import { Blockchain, PasscardMessageSignProps, PasscardMessageVerifyProps } from './types'
+import { getBech32FromHex } from './utils/cardano'
 import { generateNonce } from './utils/generateNonce'
+import { signMessage } from './utils/signMessage'
 import { toOutputLiteral } from './utils/toOutputLiteral'
+import { verifyMessage } from './utils/verifyMessage'
+import { NJSON } from 'next-json'
 
 export interface TMessage {
   /**
    * RFC 4501 DNS authority.
    */
   domain: string
+
+  /**
+   * Cardano, Mina, Ethereum, Solana
+   */
+  blockchain: string
 
   /**
    * Wallet address
@@ -67,7 +77,7 @@ export class PasscardMessage {
 
   constructor(rawMessage: string | Partial<TMessage>) {
     if (typeof rawMessage === 'string') {
-      const messageJson = JSON.parse(rawMessage)
+      const messageJson = NJSON.parse(rawMessage)
       const parsedMessage = messageSchema.parse(messageJson) as TMessage
       this.message = parsedMessage
     } else {
@@ -77,11 +87,35 @@ export class PasscardMessage {
     this.message.nonce = this.message.nonce || generateNonce()
   }
 
-  verify() {
+  async verify({ signature }: PasscardMessageVerifyProps) {
     this.message = messageSchema.parse(this.message) as TMessage
+    return verifyMessage({
+      blockchain: this.message.blockchain as Blockchain,
+      signature: signature,
+      message: this.stringify()
+    })
+  }
+
+  async sign({ walletName }: PasscardMessageSignProps) {
+    return signMessage({
+      walletName,
+      blockchain: this.message.blockchain as Blockchain,
+      address: this.message.address,
+      message: this.stringify()
+    })
+  }
+
+  getAddress() {
+    return this.message.blockchain === Blockchain[Blockchain.Cardano]
+      ? getBech32FromHex(this.message.address)
+      : this.message.address
   }
 
   stringify() {
-    return toOutputLiteral(this.message)
+    const address =
+      this.message.blockchain === Blockchain[Blockchain.Cardano]
+        ? getBech32FromHex(this.message.address)
+        : this.message.address
+    return toOutputLiteral({ ...this.message, address })
   }
 }

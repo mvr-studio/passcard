@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { Button, ConnectWalletModal, useDisclosure, Spinner } from '..'
 import { ModalMode, OnChosenPayload } from './ConnectWalletModal'
+import { Blockchain } from '@passcard/auth'
 
 interface ConnectWalletButtonProps {
   mode?: ModalMode
   buttonProps?: React.ComponentProps<typeof Button>
   children?: React.ReactNode
   onChosen: (payload: OnChosenPayload) => Promise<void>
-  allowedBlockchains?: string[]
+  allowedBlockchains?: Blockchain[]
 }
 
 export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {

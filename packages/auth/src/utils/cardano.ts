@@ -6,7 +6,7 @@ enum NetworkId {
   TESTNET = 0
 }
 
-export const cardanoBech32FromHex = (hexAddress: string) => {
+export const getBech32FromHex = (hexAddress: string) => {
   hexAddress = hexAddress.toLowerCase()
   const networkId = Number(hexAddress.charAt(1)) as NetworkId
   const addressBytes = Buffer.from(hexAddress, 'hex')
@@ -22,4 +22,9 @@ export const cardanoBech32FromHex = (hexAddress: string) => {
   }
 
   return bech32.encode(prefix, words, 1000)
+}
+
+export const getHexFromBech32 = (bech32Address: string) => {
+  const { words } = bech32.decode(bech32Address, 1000)
+  return Buffer.from(bech32.fromWords(words)).toString('hex')
 }

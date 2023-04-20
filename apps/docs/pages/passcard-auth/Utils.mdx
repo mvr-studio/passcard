@@ -2,14 +2,14 @@
 
 `@passcard/auth` was shipped with utilities to help you build DApps quicker.
 
-## cardanoBech32FromHex
+## getBech32FromHex
 
 Converts hex Cardano address (for example the address coming from `walletApi.getUsedAddresses`) to Bech32.
 
 ```ts
-import { cardanoBech32FromHex } from '@passcard/auth'
+import { getBech32FromHex } from '@passcard/auth'
 
-cardanoBech32FromHex('00970755...')
+getBech32FromHex('00970755...')
 // addr_test1qztsw...
 ```
 

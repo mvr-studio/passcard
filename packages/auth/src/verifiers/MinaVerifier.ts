@@ -1,19 +1,18 @@
 import MinaClient from 'mina-signer'
-
-type SignatureJson = {
-  field: string
-  scalar: string
-}
+import { MinaSignature, Signature } from '../types'
 
 interface VerifyProps {
-  data: string
-  signature: SignatureJson
-  publicKey: string
+  message: string
+  signature: Signature
 }
 
 export const MinaVerifier = {
-  verify({ data, signature, publicKey }: VerifyProps) {
+  verify({ signature }: VerifyProps) {
     const client = new MinaClient({ network: 'mainnet' })
-    return client.verifyMessage({ data, signature, publicKey })
+    return client.verifyMessage({
+      data: signature.parsedMessage as string,
+      signature: signature.payload as MinaSignature,
+      publicKey: signature.address as string
+    })
   }
 }

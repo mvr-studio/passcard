@@ -3,6 +3,7 @@ import { Modal, Button, Box } from '..'
 import { StepWalletChoice } from './StepWalletChoice'
 import { StepAddressChoice } from './StepAddressChoice'
 import { iconX } from '../assets/icons'
+import { Blockchain } from '@passcard/auth'
 
 export type ModalMode = 'wallet' | 'address'
 type ModalStep = 'walletChoice' | 'addressChoice'
@@ -10,7 +11,17 @@ type ModalStep = 'walletChoice' | 'addressChoice'
 export type OnChosenPayload = {
   walletName: string
   address: string | null
-  blockchain: string
+  blockchain: Blockchain
+}
+
+interface FetchUsedAddressesProps {
+  walletName: string
+  blockchain: Blockchain
+}
+
+export interface OnWalletChosenProps {
+  walletName: string
+  blockchain: Blockchain
 }
 
 interface ConnectWalletModalProps {
@@ -19,7 +30,7 @@ interface ConnectWalletModalProps {
   setIsOpen: (isOpen: boolean) => void
   onChosen: (payload: OnChosenPayload) => Promise<void>
   setIsLoading?: (value: boolean) => void
-  allowedBlockchains?: string[]
+  allowedBlockchains?: Blockchain[]
 }
 
 export const ConnectWalletModal = ({
@@ -28,29 +39,29 @@ export const ConnectWalletModal = ({
   setIsOpen,
   onChosen,
   setIsLoading,
-  allowedBlockchains = ['cardano']
+  allowedBlockchains = [Blockchain.Cardano]
 }: ConnectWalletModalProps) => {
   const [walletName, setWalletName] = useState<string | null>(null)
   const [blockchain, setBlockchain] = useState<string | null>(null)
   const [step, setStep] = useState<ModalStep>('walletChoice')
   const [addresses, setAddresses] = useState<string[]>([])
 
-  const fetchUsedAddresses = async ({ walletName, blockchain }: Record<string, string>) => {
+  const fetchUsedAddresses = async ({ walletName, blockchain }: FetchUsedAddressesProps) => {
     switch (blockchain) {
-      case 'cardano':
+      case Blockchain.Cardano:
         const walletApi = await window.cardano[walletName as string].enable()
         return setAddresses(await walletApi.getUsedAddresses())
-      case 'mina':
+      case Blockchain.Mina:
         return setAddresses(await (window as any).mina.requestAccounts())
-      case 'solana':
+      case Blockchain.Solana:
         const { publicKey } = await (window as any).solana.connect()
         return setAddresses([publicKey.toString()])
-      case 'ethereum':
-        return setAddresses(await (window as any).ethereum.enable())
+      case Blockchain.Ethereum:
+        return setAddresses(await (window as any).ethereum.request({ method: 'eth_requestAccounts' }))
     }
   }
 
-  const handleWalletChosen = async ({ walletName, blockchain }: Record<string, string>) => {
+  const handleWalletChosen = async ({ walletName, blockchain }: OnWalletChosenProps) => {
     setIsLoading && setIsLoading(true)
     setWalletName(walletName)
     setBlockchain(blockchain)
@@ -67,7 +78,7 @@ export const ConnectWalletModal = ({
   const handleAddressChosen = async (address: string) => {
     setIsOpen(false)
     setStep('walletChoice')
-    return onChosen({ walletName: walletName as string, address, blockchain: blockchain as string })
+    return onChosen({ walletName: walletName as string, address, blockchain: blockchain as Blockchain })
   }
 
   const handleOpenChange = (nextValue: boolean) => {

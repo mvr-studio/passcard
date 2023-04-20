@@ -2,18 +2,23 @@ import * as YAML from 'yaml'
 import { MessageKeySanitizer } from './MessageKeySanitizer'
 import { PasscardMessage } from '../PasscardMessage'
 import dedent from 'dedent'
+import { getHexFromBech32 } from './cardano'
 
 const domainFromHeader = (header: string) => header.split(' wants')[0]
 
-const addressAndStatementFromHeader = (header: string) =>
-  header
-    .split('address:')[1]
+const parseHeader = (header: string) => {
+  const [addressPart, ...rest] = header
+    .split('your ')[1]
     .split('\n')
     .filter((el) => el.length)
+  const [address] = addressPart.split(' address')
+  return [address, ...rest]
+}
 
-const getHeaderMeta = ({ domain, address, statement }: Record<string, string>) => {
+const getHeaderMeta = ({ domain, blockchain, address, statement }: Record<string, string>) => {
   return dedent`
     Domain: ${domain}
+    Blockchain: ${blockchain}
     Address: ${address}
     Statement: ${statement}
   `
@@ -22,14 +27,16 @@ const getHeaderMeta = ({ domain, address, statement }: Record<string, string>) =
 export const fromSanitizedMessage = (message: string) => {
   const [header, metaDataString] = message.split('Meta:')
   const domain = domainFromHeader(header)
-  const [address, statement] = addressAndStatementFromHeader(header)
+  const [blockchain, rawAddress, statement] = parseHeader(header)
   const headerMeta = getHeaderMeta({
     domain,
-    address,
+    blockchain,
+    address: rawAddress,
     statement
   })
   const joinedMeta = [headerMeta, metaDataString].join('')
   const messageObject = YAML.parse(joinedMeta)
   const parsedMessage = MessageKeySanitizer.parse(messageObject)
-  return new PasscardMessage(parsedMessage)
+  const address = parsedMessage.blockchain === 'Cardano' ? getHexFromBech32(rawAddress) : rawAddress
+  return new PasscardMessage({ ...parsedMessage, address })
 }

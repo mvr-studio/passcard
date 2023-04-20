@@ -6,6 +6,7 @@ describe('messageSchema', () => {
     it('parses the correct message', () => {
       const parsedMessage = messageSchema.parse(correctMessage)
       expect(parsedMessage.domain).toEqual('example.com')
+      expect(typeof parsedMessage.blockchain).toEqual('string')
     })
     it('throws on invalid message', () => {
       const invalidMessage = { ...correctMessage, networkId: 'Testnet' }

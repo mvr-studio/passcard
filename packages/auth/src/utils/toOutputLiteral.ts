@@ -3,8 +3,8 @@ import { TMessage } from '../PasscardMessage'
 import { MessageKeySanitizer } from '../utils/MessageKeySanitizer'
 import * as YAML from 'yaml'
 
-const getRequestingPartyLiteral = ({ domain, address }: Record<string, string>) => dedent`
-  ${domain} wants you to sign data with your Cardano address:
+const getRequestingPartyLiteral = ({ domain, address, blockchain }: Record<string, string>) => dedent`
+  ${domain} wants you to sign data with your ${blockchain} address:
   ${address}
 `
 
@@ -19,7 +19,11 @@ export const toOutputLiteral = (data: TMessage) => {
     'Expiration Time',
     'External ID'
   ])
-  const requestingParty = getRequestingPartyLiteral({ domain: data.domain, address: data.address })
+  const requestingParty = getRequestingPartyLiteral({
+    domain: data.domain,
+    address: data.address,
+    blockchain: data.blockchain
+  })
   return dedent`
     ${requestingParty}
 

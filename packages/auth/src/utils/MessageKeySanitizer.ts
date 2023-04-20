@@ -1,5 +1,6 @@
 const KEY_MAP = {
   domain: 'Domain',
+  blockchain: 'Blockchain',
   address: 'Address',
   statement: 'Statement',
   version: 'Version',

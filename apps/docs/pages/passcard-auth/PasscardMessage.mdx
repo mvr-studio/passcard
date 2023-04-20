@@ -18,7 +18,7 @@ import { ExamplePasscardMessage } from '../../components/ExamplePasscardMessage'
 | ---------- | ------------------------------ |
 | rawMessage | `string \| Partial\<Message\>` |
 
-### .stringify()
+### .stringify
 
 Returns a string, human friendly message, to sign with `walletApi.signData`.
 
@@ -45,13 +45,22 @@ Expiration Time: 2023-04-04T12:30:00Z
 External ID: abcd1234
 ```
 
-### .verify()
+### .verify
 
 Throws a Zod error if it's not valid.
 
 ```ts
 const passcardMessage = new PasscardMessage(message)
 passcardMessage.verify()
+```
+
+### .sign
+
+Triggers user message signing.
+
+```ts
+const passcardMessage = new PasscardMessage(message)
+passcardMessage.sign({ walletName }) // walletName like "lace" or "yoroi" in case it's Cardano.
 ```
 
 ## fromSanitizedMessage
