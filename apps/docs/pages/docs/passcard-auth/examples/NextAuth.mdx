@@ -1,0 +1,100 @@
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+# NextAuth
+
+<Tabs items={['/pages/api/auth/[...nextauth].ts', '/pages/api/passcard.ts', '/pages/index.tsx']}>
+  <Tab>
+    ```ts
+      [...]
+      CredentialsProvider({
+        name: 'Passcard',
+        credentials: {
+          message: {
+            label: 'Message',
+            type: 'text'
+          },
+          signature: {
+            label: 'Signature',
+            type: 'text'
+          }
+        },
+        async authorize(credentials) {
+          if (!credentials?.message) return null
+          if (!credentials?.signature) return null
+          const signature = parseSignature(credentials.signature)
+          const message = fromSanitizedMessage(credentials.message)
+          const isValid = await message.verify({
+            signature: signature
+          })
+          if (isValid)
+            return {
+              id: message.getAddress()
+            }
+          return null
+        }
+      })
+      [...]
+    ```
+  </Tab>
+  <Tab>
+    ```ts
+      [...]
+      const handler: NextApiHandler = async (req, res) => {
+        const address = req.query.address as string
+        const blockchain = req.query.blockchain as string
+        try {
+          if (!address) throw new Error('Wallet address is missing')
+          if (!blockchain) throw new Error('Blockchain is missing')
+          const nonce = (await getCsrfToken({ req })) || generateNonce()
+          const { message } = new PasscardMessage({
+            domain: 'cardfeed.netlify.app',
+            address,
+            blockchain,
+            statement: 'Sign in',
+            version: '0.0.1',
+            uri: process.env.PASSCARD_URI,
+            networkId: 0,
+            nonce
+          })
+          res.json({ message })
+        } catch (error) {
+          res.status(500).json({ error })
+        }
+      }
+      [...]
+    ```
+  </Tab>
+  <Tab>
+    ```ts
+      import { Blockchain, PasscardMessage, stringifySignature, trimAddress } from '@passcard/auth'
+      import { ConnectWalletButton, OnChosenPayload } from '@passcard/ui'
+
+      const ExamplePage = () => {
+        const handleWalletChosen = async ({ walletName, address, blockchain }: OnChosenPayload) => {
+          const messageRequest = await fetch(`/api/passcard?address=${address}&blockchain=${blockchain}`)
+          const messageData = await messageRequest.json()
+          const message = new PasscardMessage(messageData.message)
+          const signature = await message.sign({ walletName })
+          await signIn('credentials', {
+            message: message.stringify(),
+            signature: stringifySignature(signature)
+          })
+        }
+
+        return (
+          <ConnectWalletButton
+            mode="address"
+            onChosen={handleWalletChosen}
+            allowedBlockchains={[Blockchain.Cardano, Blockchain.Ethereum, Blockchain.Mina, Blockchain.Solana]}
+          />
+        )
+      }
+    ```
+
+  </Tab>
+</Tabs>
+
+## Full example
+
+Source code:
+https://github.com/mvr-studio/passcard/tree/main/examples/cardfeed

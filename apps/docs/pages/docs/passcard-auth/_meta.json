@@ -1,4 +1,5 @@
 {
   "PasscardMessage": "PasscardMessage",
-  "NextAuth": "NextAuth"
+  "Utils": "Utils",
+  "examples": "Examples"
 }

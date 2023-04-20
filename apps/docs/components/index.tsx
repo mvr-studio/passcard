@@ -13,7 +13,8 @@ export const {
   Switch,
   Label,
   useDisclosure,
-  Image
+  Image,
+  getCssText
 } = createExoUi()
 export { HomeHero } from './HomeHero'
 export { HomeSupportedPlatforms } from './HomeSupportedPlatforms'
