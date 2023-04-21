@@ -1,4 +1,5 @@
 import { Box, Card, Container, Flex, Heading, SimpleGrid, Stack, Text } from '.'
+import { BlurBackground } from './BlurBackground'
 
 const Tile = ({ imgSrc, name }: Record<string, string>) => {
   return (
@@ -11,10 +12,22 @@ const Tile = ({ imgSrc, name }: Record<string, string>) => {
 
 export const HomeSupportedPlatforms = () => {
   return (
-    <Container css={{ paddingTop: '6rem', paddingBottom: '6rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
+    <Container
+      css={{
+        position: 'relative',
+        paddingTop: '6rem',
+        paddingBottom: '6rem',
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
+        overflow: 'none'
+      }}
+    >
+      <BlurBackground left="-10%" bottom="0" />
       <Flex css={{ '@base': { flexDirection: 'column' }, '@md': { flexDirection: 'row' }, gap: '2rem' }}>
-        <Heading css={{ flex: 1 }}>Supported Platforms</Heading>
-        <SimpleGrid columns={{ '@base': 3, '@md': 4 }} css={{ flex: 2, gap: '1rem' }}>
+        <Heading as="h2" css={{ flex: 2, fontFamily: 'sora' }}>
+          Supported Platforms
+        </Heading>
+        <SimpleGrid columns={{ '@base': 3, '@md': 4 }} css={{ flex: 3, gap: '1rem' }}>
           <Tile imgSrc="/lace.svg" name="Lace" />
           <Tile imgSrc="/yoroi.svg" name="Yoroi" />
           <Tile imgSrc="/metamask.svg" name="MetaMask" />

@@ -21,7 +21,9 @@ export const PasscardDemo = () => {
   return (
     <Container css={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
       <Stack css={{ gap: '2rem' }}>
-        <Heading as="h2">Hassle-free</Heading>
+        <Heading as="h2" css={{ fontFamily: 'sora' }}>
+          Hassle-free
+        </Heading>
         <InteractivePlayground initialCode={initialCode} scope={scope} horizontal hideLogs />
       </Stack>
     </Container>
