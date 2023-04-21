@@ -1,0 +1,33 @@
+{
+  "name": "@passcard/core",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test:unit": "vitest"
+  },
+  "devDependencies": {
+    "@vitest/coverage-c8": "^0.30.1",
+    "happy-dom": "^9.8.4",
+    "vite": "^4.3.1",
+    "vitest": "^0.30.1"
+  },
+  "dependencies": {},
+  "peerDependencies": {}
+}

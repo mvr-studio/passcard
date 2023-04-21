@@ -1,4 +1,5 @@
 {
   "ConnectWalletButton": "ConnectWalletButton",
-  "ConnectWalletModal": "ConnectWalletModal"
+  "ConnectWalletModal": "ConnectWalletModal",
+  "AddressTile": "AddressTile"
 }
