@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, ConnectWalletModal, useDisclosure, Spinner } from '..'
 import { ModalMode, OnChosenPayload } from './ConnectWalletModal'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 
 interface ConnectWalletButtonProps {
   mode?: ModalMode

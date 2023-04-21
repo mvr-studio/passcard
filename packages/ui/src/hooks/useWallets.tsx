@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useCardanoWallets } from '@mvr-studio/use-dapp-connector'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 
 interface UseWalletsProps {
   setAreWalletsLoading?: (value: boolean) => void

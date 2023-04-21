@@ -3,7 +3,7 @@ import { ConnectWalletModal } from './ConnectWalletModal'
 import type { OnChosenPayload } from './ConnectWalletModal'
 import type { Story, StoryDefault } from '@ladle/react'
 import { Stack, Box, Switch, Label, useDisclosure } from '..'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 
 export const Basic: Story = () => {
   const { isOpen, onToggle } = useDisclosure()

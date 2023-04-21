@@ -1,6 +1,6 @@
 import { ConnectWalletButton } from '@passcard/ui'
 import { InteractivePlayground } from './InteractivePlayground'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 import { Container, Heading, Stack } from '.'
 
 export const PasscardDemo = () => {

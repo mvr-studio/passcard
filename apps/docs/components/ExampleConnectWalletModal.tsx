@@ -1,7 +1,7 @@
 import { ConnectWalletModal } from '@passcard/ui'
 import { InteractivePlayground } from './InteractivePlayground'
 import { Stack, Switch, Label, useDisclosure, Box } from '.'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 
 export const ExampleConnectWalletModal = () => {
   const initialCode = `

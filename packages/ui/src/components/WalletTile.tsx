@@ -1,6 +1,6 @@
 import React from 'react'
 import { AspectRatio, Flex, Box, Text } from '..'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 import { OnWalletChosenProps } from './ConnectWalletModal'
 
 type WalletName = string

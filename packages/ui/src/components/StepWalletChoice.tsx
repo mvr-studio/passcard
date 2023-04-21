@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Heading, SimpleGrid, Stack, WalletTile } from '..'
 import { useWallets } from '../hooks/useWallets'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 import { OnWalletChosenProps } from './ConnectWalletModal'
 
 interface StepWalletChoiceProps {

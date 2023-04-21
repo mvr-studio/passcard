@@ -3,7 +3,7 @@ import { Modal, Button, Box } from '..'
 import { StepWalletChoice } from './StepWalletChoice'
 import { StepAddressChoice } from './StepAddressChoice'
 import { iconX } from '../assets/icons'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 
 export type ModalMode = 'wallet' | 'address'
 type ModalStep = 'walletChoice' | 'addressChoice'

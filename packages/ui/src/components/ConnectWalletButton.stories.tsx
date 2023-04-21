@@ -2,7 +2,7 @@ import React from 'react'
 import type { Story, StoryDefault } from '@ladle/react'
 import { ConnectWalletButton } from './ConnectWalletButton'
 import type { OnChosenPayload } from './ConnectWalletModal'
-import { Blockchain } from '@passcard/auth'
+import { Blockchain } from '@passcard/core'
 
 export const Basic: Story = () => {
   const onChosen = async ({ walletName }: OnChosenPayload) => {
