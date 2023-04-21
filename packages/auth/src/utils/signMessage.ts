@@ -1,5 +1,5 @@
 import { Blockchain, SignMessageProps } from '../types'
-import { toHexMessage } from './toHexMessage'
+import { toHexMessage } from '../'
 
 export const signMessage = async ({ blockchain, walletName, message, address }: SignMessageProps) => {
   if (typeof window === 'undefined') throw new Error('Window is not available.')

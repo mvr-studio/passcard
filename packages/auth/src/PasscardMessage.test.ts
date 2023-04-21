@@ -2,7 +2,7 @@ import { PasscardMessage } from './PasscardMessage'
 import correctMessage from '../test/mocks/correctMessage.json'
 // @ts-ignore - Vite imports the raw contents correctly
 import stringifiedMessage from '../test/mocks/stringifiedMessage.txt?raw'
-import { getBech32FromHex } from './utils/cardano'
+import { getBech32FromHex } from '.'
 
 // beforeAll(() => {
 //   window.cardano.lace = {

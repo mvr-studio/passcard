@@ -1,6 +1,6 @@
 import { messageSchema } from './messageSchema'
 import { Blockchain, PasscardMessageSignProps, PasscardMessageVerifyProps } from './types'
-import { getBech32FromHex } from './utils/cardano'
+import { getBech32FromHex } from '.'
 import { generateNonce } from './utils/generateNonce'
 import { signMessage } from './utils/signMessage'
 import { toOutputLiteral } from './utils/toOutputLiteral'

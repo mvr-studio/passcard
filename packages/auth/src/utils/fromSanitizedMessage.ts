@@ -2,7 +2,7 @@ import * as YAML from 'yaml'
 import { MessageKeySanitizer } from './MessageKeySanitizer'
 import { PasscardMessage } from '../PasscardMessage'
 import dedent from 'dedent'
-import { getHexFromBech32 } from './cardano'
+import { getHexFromBech32 } from '../'
 
 const domainFromHeader = (header: string) => header.split(' wants')[0]
 

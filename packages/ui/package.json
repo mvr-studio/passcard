@@ -19,7 +19,6 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test:unit": "yarn jest",
     "story:dev": "ladle serve",
     "story:build": "ladle build",
     "story:preview": "ladle preview"

@@ -1,5 +1,5 @@
 import verifySignature from '@cardano-foundation/cardano-verify-datasignature'
-import { getBech32FromHex } from '../utils/cardano'
+import { getBech32FromHex } from '../'
 import { Signature } from '../types'
 
 interface CardanoVerifierProps {

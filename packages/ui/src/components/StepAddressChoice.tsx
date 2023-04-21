@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Button, Heading, Stack } from '..'
-import { trimAddress, getBech32FromHex } from '@passcard/auth'
+import { trimAddress, getBech32FromHex } from '@passcard/core'
 import { iconChevronRight } from '../assets/icons'
 
 interface FormatCardanoAddressProps {
