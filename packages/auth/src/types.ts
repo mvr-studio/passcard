@@ -1,9 +1,4 @@
-export enum Blockchain {
-  Cardano = 'Cardano',
-  Ethereum = 'Ethereum',
-  Mina = 'Mina',
-  Solana = 'Solana'
-}
+import { Blockchain } from '.'
 
 export type WalletAddress = string | Uint8Array
 
@@ -39,3 +34,5 @@ export interface SignMessageProps {
 }
 
 export type PasscardMessageSignProps = Pick<SignMessageProps, 'walletName'>
+
+export { Blockchain }

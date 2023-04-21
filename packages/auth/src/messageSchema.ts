@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { Blockchain } from './types'
+import { Blockchain } from '.'
 
 enum NetworkId {
   Mainnet = 1,
