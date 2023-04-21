@@ -15,7 +15,8 @@ export const {
   useDisclosure,
   Spinner,
   Card,
-  Image
+  Image,
+  Skeleton
 } = createExoUi()
 
 export { ConnectWalletModal } from './components/ConnectWalletModal'

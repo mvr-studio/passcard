@@ -1499,17 +1499,17 @@
     underscore "^1.9.1"
 
 "@mvr-studio/exo-css@*":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-css/-/exo-css-0.0.8.tgz#fcd98012940f9713f33efea676bd2b47c514f9dc"
-  integrity sha512-27Ix64hog9voSnnuVPAGRcItv1h+a2IDMxvY2Zn7yyq1A/qVEomj1kOizAVNtfowULueAQT8zuBmcK0xDLlujA==
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-css/-/exo-css-0.0.9.tgz#decd9b926fa52c56771dcd0a36ca68ca62e7fdf2"
+  integrity sha512-j68S46QbEX3mZgyd33SoCegd8nzUe+Wmk+9OkNgszpv4gxnkaXk2WrYbl3k8i6/py0yjTocEvfUxJdiBTQuuXA==
   dependencies:
     chroma-js "^2.4.2"
     polished "^4.2.2"
 
-"@mvr-studio/exo-ui@^0.1.5", "@mvr-studio/exo-ui@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-ui/-/exo-ui-0.1.6.tgz#733d151e2c735ced4d03ce9936d06deff2de2a91"
-  integrity sha512-0IQWuhvzw8gjoElWao7ZgNUYPTYd0jnUc6k0IY5PL8kcdU53PLlIXNVw5p1A3BAOxBKItXiyoDMuxZawU6oAGQ==
+"@mvr-studio/exo-ui@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@mvr-studio/exo-ui/-/exo-ui-0.1.7.tgz#bce2b7afd6504fa96661e65be6d0d7bbc070fdc2"
+  integrity sha512-hSaOyIL7CiY0TZaz8wVQwZR10oMGohPsMJ5KYcEWG9rVs8ckoWZEva6dreTATFTapsSDw8d2FRTxT8yAVlqGhQ==
   dependencies:
     "@mvr-studio/exo-css" "*"
     "@radix-ui/react-aspect-ratio" "^1.0.2"

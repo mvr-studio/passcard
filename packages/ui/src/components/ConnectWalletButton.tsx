@@ -21,6 +21,7 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         onChosen={props.onChosen}
+        isLoading={isLoading}
         setIsLoading={setIsLoading}
         allowedBlockchains={props.allowedBlockchains}
       />

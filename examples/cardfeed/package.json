@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.15",
-    "@mvr-studio/exo-ui": "^0.1.6",
+    "@mvr-studio/exo-ui": "^0.1.7",
     "@passcard/auth": "*",
     "@passcard/ui": "*",
     "@types/node": "18.15.11",

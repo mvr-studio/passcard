@@ -29,6 +29,7 @@ interface ConnectWalletModalProps {
   mode?: ModalMode
   setIsOpen: (isOpen: boolean) => void
   onChosen: (payload: OnChosenPayload) => Promise<void>
+  isLoading?: boolean
   setIsLoading?: (value: boolean) => void
   allowedBlockchains?: Blockchain[]
 }
@@ -38,6 +39,7 @@ export const ConnectWalletModal = ({
   mode = 'wallet',
   setIsOpen,
   onChosen,
+  isLoading = false,
   setIsLoading,
   allowedBlockchains = [Blockchain.Cardano]
 }: ConnectWalletModalProps) => {
@@ -99,6 +101,7 @@ export const ConnectWalletModal = ({
           {step === 'walletChoice' && (
             <StepWalletChoice
               onWalletChosen={handleWalletChosen}
+              areWalletsLoading={isLoading}
               setAreWalletsLoading={setIsLoading}
               allowedBlockchains={allowedBlockchains}
             />

@@ -12,7 +12,7 @@
     "@babel/preset-typescript": "^7.21.4",
     "@fontsource/jetbrains-mono": "^4.5.12",
     "@fontsource/sora": "^4.5.12",
-    "@mvr-studio/exo-ui": "^0.1.5",
+    "@mvr-studio/exo-ui": "^0.1.7",
     "@passcard/auth": "*",
     "@passcard/ui": "*",
     "dayjs": "^1.11.7",
