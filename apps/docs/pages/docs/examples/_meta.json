@@ -1,0 +1,5 @@
+{
+  "NextAuth": "NextAuth",
+  "Passport": "Passport.js",
+  "ApolloServer": "Apollo Server"
+}

@@ -16,5 +16,7 @@ export const {
   Image,
   getCssText
 } = createExoUi()
+export { Card } from './Card'
 export { HomeHero } from './HomeHero'
 export { HomeSupportedPlatforms } from './HomeSupportedPlatforms'
+export { HomeSelectedFeatures } from './HomeSelectedFeatures'

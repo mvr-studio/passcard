@@ -1,21 +1,11 @@
-import { Box, Container, Flex, Heading, SimpleGrid, Stack, Text } from '.'
+import { Box, Card, Container, Flex, Heading, SimpleGrid, Stack, Text } from '.'
 
 const Tile = ({ imgSrc, name }: Record<string, string>) => {
   return (
-    <Stack
-      css={{
-        flexDirection: 'column',
-        justifyContent: 'center',
-        border: '1px solid',
-        alignItems: 'center',
-        borderColor: '$gray500',
-        borderRadius: '$lg',
-        padding: '$sm'
-      }}
-    >
+    <Card>
       <Box as="img" src={imgSrc} alt={name} css={{ width: '2.5rem' }} />
       <Text css={{ textAlign: 'center', fontWeight: '$semibold' }}>{name}</Text>
-    </Stack>
+    </Card>
   )
 }
 
