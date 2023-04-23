@@ -37,13 +37,15 @@
     "happy-dom": "^9.8.4",
     "prettier": "^2.8.7",
     "vite": "^4.3.1",
+    "vite-plugin-top-level-await": "^1.3.0",
+    "vite-plugin-wasm": "^3.2.2",
     "vitest": "^0.30.1"
   },
   "dependencies": {
-    "@passcard/core": "*",
     "@fontsource/inter": "^4.5.15",
     "@mvr-studio/exo-ui": "^0.1.7",
     "@mvr-studio/use-dapp-connector": "^0.0.4",
+    "@passcard/core": "*",
     "@stitches/core": "^1.2.8",
     "@stitches/react": "^1.2.8",
     "react": "^18.2.0",
