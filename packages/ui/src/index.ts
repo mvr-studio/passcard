@@ -23,5 +23,6 @@ export { ConnectWalletModal } from './components/ConnectWalletModal'
 export { ConnectWalletButton } from './components/ConnectWalletButton'
 export { WalletTile } from './components/WalletTile'
 export { AddressTile } from './components/AddressTile'
+export { AddressQrCode } from './components/AddressQrCode'
 
 export type { OnChosenPayload } from './components/ConnectWalletModal'

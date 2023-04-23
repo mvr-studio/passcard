@@ -1,5 +1,6 @@
 {
   "ConnectWalletButton": "ConnectWalletButton",
   "ConnectWalletModal": "ConnectWalletModal",
-  "AddressTile": "AddressTile"
+  "AddressTile": "AddressTile",
+  "AddressQrCode": "AddressQrCode"
 }
