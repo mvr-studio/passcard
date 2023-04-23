@@ -1,0 +1,23 @@
+{
+  "name": "@passcard/functions",
+  "version": "0.0.1",
+  "author": "Tomasz Marciniak <tomek@mvr.studio>",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/server.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch --onSuccess \"node dist/server.js\"",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@trpc/server": "^10.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "query-string": "^8.1.0",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "tsup": "^6.7.0"
+  }
+}
