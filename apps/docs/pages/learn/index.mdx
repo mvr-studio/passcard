@@ -9,13 +9,29 @@ import {
 
 <Container css={{ marginTop: '6rem', marginBottom: '8rem', maxWidth: '$containerMd' }}>
   <Stack css={{ gap: '1rem' }}>
-    <Heading>Learn [under construction]</Heading>
+    <Heading>Learn</Heading>
     <Heading size="lg">Basics</Heading>
     <Box as={Cards} css={{ width: '100%' }}>
-      <Card title="What is Passcard?" icon={<TbInfoSquareRoundedFilled size="1.5rem" />} />
-      <Card title="The importance of Wallet based authentication" icon={<TbExclamationCircle size="1.5rem" />} />
-      <Card title="How to choose a wallet?" icon={<TbReportSearch size="1.5rem" />} />
-      <Card title="Protect your wallet" icon={<TbLockSquareRoundedFilled size="1.5rem" />} />
+      <Card
+        title="What is Passcard?"
+        href="learn/what-is-passcard"
+        icon={<TbInfoSquareRoundedFilled size="1.5rem" />}
+      />
+      <Card
+        title="The importance of Wallet based authentication"
+        href="learn/wallet-auth-importance"
+        icon={<TbExclamationCircle size="1.5rem" />}
+      />
+      <Card
+        title="How to choose a wallet?"
+        href="learn/how-to-choose-a-wallet"
+        icon={<TbReportSearch size="1.5rem" />}
+      />
+      <Card
+        title="Protect your wallet"
+        href="learn/protect-your-wallet"
+        icon={<TbLockSquareRoundedFilled size="1.5rem" />}
+      />
     </Box>
   </Stack>
 </Container>

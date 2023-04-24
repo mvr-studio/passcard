@@ -14,9 +14,11 @@ export const {
   Label,
   useDisclosure,
   Image,
+  Content,
   getCssText
 } = createExoUi()
 export { Card } from './Card'
 export { HomeHero } from './HomeHero'
 export { HomeSupportedPlatforms } from './HomeSupportedPlatforms'
 export { HomeSelectedFeatures } from './HomeSelectedFeatures'
+export { Article } from './Article'
