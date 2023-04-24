@@ -13,6 +13,14 @@
     "type": "page",
     "href": "/docs"
   },
+  "learn": {
+    "title": "Learn",
+    "type": "page",
+    "href": "/learn",
+    "theme": {
+      "layout": "raw"
+    }
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",

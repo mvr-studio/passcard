@@ -1,0 +1,21 @@
+import { Cards, Card } from 'nextra-theme-docs'
+import { Heading, Container, Stack, Box } from '../../components'
+import {
+  TbInfoSquareRoundedFilled,
+  TbLockSquareRoundedFilled,
+  TbExclamationCircle,
+  TbReportSearch
+} from 'react-icons/tb'
+
+<Container css={{ marginTop: '6rem', marginBottom: '8rem', maxWidth: '$containerMd' }}>
+  <Stack css={{ gap: '1rem' }}>
+    <Heading>Learn [under construction]</Heading>
+    <Heading size="lg">Basics</Heading>
+    <Box as={Cards} css={{ width: '100%' }}>
+      <Card title="What is Passcard?" icon={<TbInfoSquareRoundedFilled size="1.5rem" />} />
+      <Card title="The importance of Wallet based authentication" icon={<TbExclamationCircle size="1.5rem" />} />
+      <Card title="How to choose a wallet?" icon={<TbReportSearch size="1.5rem" />} />
+      <Card title="Protect your wallet" icon={<TbLockSquareRoundedFilled size="1.5rem" />} />
+    </Box>
+  </Stack>
+</Container>
