@@ -1,3 +1,6 @@
 {
-  "components": "Components"
+  "ConnectWalletButton": "ConnectWalletButton",
+  "ConnectWalletModal": "ConnectWalletModal",
+  "AddressTile": "AddressTile",
+  "AddressQrCode": "AddressQrCode"
 }

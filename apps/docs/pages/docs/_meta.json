@@ -1,7 +1,7 @@
 {
   "index": "Documentation",
   "tutorial": "Tutorial",
-  "s1": {
+  "---": {
     "type": "separator"
   },
   "passcard-ui": "Passcard UI",

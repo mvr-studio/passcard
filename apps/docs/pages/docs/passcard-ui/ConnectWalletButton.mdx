@@ -1,23 +1,22 @@
-# ConnectWalletModal
+# ConnectWalletButton
 
-A standalone wallet connection modal, in case you want to customize how you trigger it.
+A button and connection modal solution to fetch `walletName` or a specific used wallet address for data signing purposes.
 
 ```tsx
-import { ConnectWalletModal } from '@passcard/ui'
+import { ConnectWalletButton } from '@passcard/ui'
 ```
 
 ## Playground
 
-import { ExampleConnectWalletModal } from '../../../../components/ExampleConnectWalletModal'
+import { ExampleConnectWalletButton } from '../../../components/ExampleConnectWalletButton'
 
-<ExampleConnectWalletModal />
+<ExampleConnectWalletButton />
 
 ## API
 
 | Property            | Type                                                     | Default                | Description                                                                                       |
 | ------------------- | -------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------- |
-| isOpen              | `boolean`                                                |                        |
-| setIsOpen           | (isOpen: boolean) => void                                |                        |
 | onChosen            | `({ walletName, address, blockchain }) => Promise<void>` |                        | Callback to get the walletName or a specific address.                                             |
 | mode?               | `"wallet" \| "address"`                                  | `"wallet"`             | When set to `"address"`, the flow has an additional step to select a specific used address.       |
+| buttonProps?        | ExoUI/Button styling props                               |                        |
 | allowedBlockchains? | `string[]`                                               | `[Blockchain.Cardano]` | Supported values: `[Blockchain.Cardano, Blockchain.Mina, Blockchain.Ethereum, Blockchain.Solana]` |
