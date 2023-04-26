@@ -19,7 +19,7 @@ export const PasscardDemo = () => {
   const scope = { ConnectWalletButton, Blockchain }
 
   return (
-    <Container css={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+    <Container css={{ paddingLeft: '1rem', paddingRight: '1rem', paddingTop: '6rem', paddingBottom: '6rem' }}>
       <Stack css={{ gap: '2rem' }}>
         <Heading as="h2" css={{ fontFamily: 'sora' }}>
           Hassle-free

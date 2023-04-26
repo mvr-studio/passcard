@@ -42,7 +42,11 @@ export const HomeHero = () => {
               under 30 minutes.
             </Text>
             <NextLink href="/docs">
-              <Button size="lg" css={{ width: 'auto', marginTop: '1rem', borderRadius: '2rem' }}>
+              <Button
+                size="lg"
+                css={{ width: 'auto', marginTop: '1rem', borderRadius: '2rem' }}
+                data-umami-event="Landing:Get started clicked"
+              >
                 Get started
               </Button>
             </NextLink>

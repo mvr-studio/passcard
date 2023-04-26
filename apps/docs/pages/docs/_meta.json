@@ -6,5 +6,6 @@
   },
   "passcard-ui": "Passcard UI",
   "passcard-auth": "Passcard Auth",
-  "examples": "Examples"
+  "examples": "Examples",
+  "siwe-migration": "SIWE migration guide"
 }

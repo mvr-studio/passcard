@@ -15,10 +15,13 @@ export const {
   useDisclosure,
   Image,
   Content,
+  Link,
   getCssText
 } = createExoUi()
 export { Card } from './Card'
 export { HomeHero } from './HomeHero'
 export { HomeSupportedPlatforms } from './HomeSupportedPlatforms'
 export { HomeSelectedFeatures } from './HomeSelectedFeatures'
+export { HomePackages } from './HomePackages'
+export { HomeSocial } from './HomeSocial'
 export { Article } from './Article'
