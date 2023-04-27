@@ -10,13 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Session {
-  id        String   @id
-  sid       String   @unique
-  data      String
-  expiresAt   DateTime
-}
-
 model User {
   id    Int     @id @default(autoincrement())
   address String  @unique

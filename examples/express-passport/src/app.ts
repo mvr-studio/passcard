@@ -21,15 +21,19 @@ app.use(express.json())
 app.use('/', authRouter)
 app.use('/', passport.authenticate('jwt', { session: false }), usersRouter)
 
-app.use((req, res, next) => {
-  var err = new Error('Not Found')
-  res.status(404).json(err)
+app.use((req, res) => {
+  const error = new Error('Not Found')
+  res.status(404).json({ error: error.message, status: 404 })
 })
 
-app.use((err, req, res, next) => {
+app.use((error, req, res) => {
   res.locals.message = err.message
-  res.locals.error = req.app.get('env') === 'development' ? err : {}
-  res.status(err.status || 500).json(err)
+  res.locals.error = req.app.get('env') === 'development' ? error : {}
+  const status = error.status || 500
+  res.status(status).json({
+    error: err.message,
+    status
+  })
 })
 
 export default app

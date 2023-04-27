@@ -22,8 +22,6 @@ export const Navbar = () => {
     const messageData = await messageRequest.json()
     const message = new PasscardMessage(messageData.message)
     const signature = await message.sign({ walletName })
-    console.log('>>>MESSAGE', message.stringify())
-    console.log('>>>SIGNATURE', stringifySignature(signature))
     await signIn('credentials', {
       message: message.stringify(),
       signature: stringifySignature(signature)

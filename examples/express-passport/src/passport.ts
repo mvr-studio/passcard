@@ -8,21 +8,17 @@ const prisma = new PrismaClient()
 
 passport.use(
   'passcard',
-  new LocalStrategy(
-    { usernameField: 'message', passwordField: 'signature', session: false },
-    async (localMessage, localSignature, callback) => {
-      console.log(localMessage)
-      const signature = parseSignature(localSignature)
-      const message = fromSanitizedMessage(localMessage)
-      const isValid = await message.verify({
-        signature: signature
-      })
-      if (!isValid) return callback(null, false, { message: 'Invalid signature.' })
-      const address = message.getAddress()
-      const user = await prisma.user.upsert({ where: { address }, update: { address }, create: { address } })
-      return callback(null, user)
-    }
-  )
+  new LocalStrategy({ session: false }, async (localMessage, localSignature, callback) => {
+    const signature = parseSignature(localSignature)
+    const message = fromSanitizedMessage(localMessage)
+    const isValid = await message.verify({
+      signature: signature
+    })
+    if (!isValid) return callback(null, false, { message: 'Invalid signature.' })
+    const address = message.getAddress()
+    const user = await prisma.user.upsert({ where: { address }, update: { address }, create: { address } })
+    return callback(null, user)
+  })
 )
 
 passport.use(
