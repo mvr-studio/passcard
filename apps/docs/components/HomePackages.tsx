@@ -7,7 +7,7 @@ export const HomePackages = () => {
     <Box css={{ backgroundColor: 'var(--background-e0)' }}>
       <Container css={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
         <Heading as="h2" css={{ fontFamily: 'sora' }}>
-          First party packages
+          First Party Packages
         </Heading>
         <SimpleGrid columns={{ '@base': 1, '@md': 2 }} css={{ gap: '1rem', marginTop: '1rem' }}>
           <NextLink href="/docs">
@@ -18,7 +18,9 @@ export const HomePackages = () => {
                   Passcard UI
                 </Heading>
               </Stack>
-              <Text>Composable React authentication components library.</Text>
+              <Text css={{ lineHeight: 2 }}>
+                Composable React authentication component library with dark mode support.
+              </Text>
             </Card>
           </NextLink>
           <NextLink href="/docs">
@@ -29,7 +31,10 @@ export const HomePackages = () => {
                   Passcard Auth
                 </Heading>
               </Stack>
-              <Text>Build authentication messages and verify them on server-side.</Text>
+              <Text css={{ lineHeight: 2 }}>
+                Build authentication messages and verify them on the server side. Includes support for NextAuth and
+                Passport.js.
+              </Text>
             </Card>
           </NextLink>
         </SimpleGrid>

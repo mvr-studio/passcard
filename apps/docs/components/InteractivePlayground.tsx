@@ -44,16 +44,14 @@ export const InteractivePlayground = ({
 
   return (
     <Stack css={{ flexDirection: horizontal ? 'row' : 'column', alignItems: 'stretch', gap: '1rem' }}>
-      <Box css={{ ...cardCss }}>
-        <Compiler {...params.compilerProps} presets={[presetTypescript]} />
+      <Box css={{ ...cardCss, flex: 1 }}>
+        <Compiler {...params.compilerProps} presets={[presetTypescript]} className={styles.compilerOverrides} />
       </Box>
       {!hideLogs && (
         <Stack
           css={{
             ...cardCss,
-            overflowY: 'scroll',
-            minHeight: '5rem',
-            maxHeight: '10rem'
+            overflowY: 'scroll'
           }}
         >
           <Text css={{ fontSize: '$sm', color: isDark ? '$gray100' : '$gray600' }}>Logs</Text>
@@ -67,6 +65,7 @@ export const InteractivePlayground = ({
       <Box
         css={{
           ...cardCss,
+          flex: 1,
           '@base': { display: 'none' },
           '@md': { display: 'block' },
           padding: 0,

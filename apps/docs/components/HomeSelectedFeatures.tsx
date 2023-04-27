@@ -21,7 +21,7 @@ export const HomeSelectedFeatures = () => {
           <Flex css={{ alignItems: 'center', gap: '1rem' }}>
             <TbBrandGithub size="1.5rem" />
             <Heading size="lg" css={{ fontFamily: 'sora' }}>
-              Open-sourced
+              Open Source
             </Heading>
           </Flex>
           <Text>So you know what you get.</Text>

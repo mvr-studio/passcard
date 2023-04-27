@@ -7,7 +7,6 @@
     "start": "next start"
   },
   "author": "Tomasz Marciniak <tomek@mvr.studio>",
-  "license": "MIT",
   "dependencies": {
     "@babel/preset-typescript": "^7.21.4",
     "@fontsource/jetbrains-mono": "^4.5.12",

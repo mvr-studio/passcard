@@ -2,7 +2,6 @@
   "name": "@passcard/functions",
   "version": "0.0.1",
   "author": "Tomasz Marciniak <tomek@mvr.studio>",
-  "license": "MIT",
   "type": "module",
   "main": "./dist/server.js",
   "scripts": {

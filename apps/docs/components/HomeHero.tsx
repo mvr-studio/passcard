@@ -35,11 +35,11 @@ export const HomeHero = () => {
             <Heading css={{ '@base': { fontSize: '2rem' }, '@md': { fontSize: '3rem' }, fontFamily: 'sora' }}>
               Web3 Authentication
             </Heading>
-            <Text>Allow your users to sign in with their wallets.</Text>
+            <Text>Allow your users to log in with their wallets.</Text>
             <Text css={{ lineHeight: 2.25 }}>
-              Integrate Cardano, Mina, Ethereum and Solana auth
+              Integrate Cardano, Mina, Ethereum and Solana Auth
               <br />
-              under 30 minutes.
+              in under 30 minutes.
             </Text>
             <NextLink href="/docs">
               <Button

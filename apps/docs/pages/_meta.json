@@ -26,11 +26,13 @@
     "items": {
       "twitter": {
         "title": "Twitter",
-        "href": "https://twitter.com/passcard_dev"
+        "href": "https://twitter.com/passcard_dev",
+        "newWindow": true
       },
       "mvr": {
         "title": "MVR Studio",
-        "href": "https://mvr.studio"
+        "href": "https://mvr.studio",
+        "newWindow": true
       }
     }
   }
