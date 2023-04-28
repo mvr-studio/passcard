@@ -1,4 +1,4 @@
-import { Blockchain } from '.'
+import { Blockchain } from '@passcard/core'
 
 export type WalletAddress = string | Uint8Array
 
