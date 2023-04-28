@@ -1,5 +1,5 @@
 {
-  "name": "@passcard/express-passport",
+  "name": "@passcard/express-passport-prisma",
   "version": "1.0.0",
   "author": "Tomasz Marciniak <tomek@mvr.studio>",
   "type": "module",
@@ -15,8 +15,8 @@
     }
   },
   "scripts": {
-    "dev": "tsup --watch --onSuccess \"node dist/server.js\"",
-    "build": "tsup",
+    "dev": "tsup-node --watch --onSuccess \"node dist/server.js\"",
+    "build": "tsup-node",
     "start": "node dist/server.js"
   },
   "dependencies": {
