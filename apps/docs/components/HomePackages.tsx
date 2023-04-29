@@ -6,7 +6,7 @@ export const HomePackages = () => {
   return (
     <Box css={{ backgroundColor: 'var(--background-e0)' }}>
       <Container css={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
-        <Heading as="h2" css={{ fontFamily: 'sora' }}>
+        <Heading as="h2" css={{ fontFamily: 'sora', '@base': { fontSize: '1.5rem' }, '@md': { fontSize: '1.75rem' } }}>
           First Party Packages
         </Heading>
         <SimpleGrid columns={{ '@base': 1, '@md': 2 }} css={{ gap: '1rem', marginTop: '1rem' }}>

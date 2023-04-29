@@ -1,5 +1,6 @@
 {
   "NextAuth": "NextAuth",
   "Passport": "Passport.js",
-  "ApolloServer": "Apollo Server"
+  "ApolloServer": "Apollo Server",
+  "NestJs": "NestJS"
 }

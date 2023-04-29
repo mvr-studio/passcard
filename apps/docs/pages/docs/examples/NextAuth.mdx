@@ -1,9 +1,11 @@
-import { Tab, Tabs } from 'nextra-theme-docs'
+import { Tab, Tabs, Cards, Card } from 'nextra-theme-docs'
+import { TbBrandGithub, TbAppWindow } from 'react-icons/tb'
 
 # NextAuth
 
 ## Stack
 
+- TypeScript
 - Next.js
 - NextAuth
 
@@ -101,7 +103,11 @@ import { Tab, Tabs } from 'nextra-theme-docs'
   </Tab>
 </Tabs>
 
-## Full example
-
-Source code:
-https://github.com/mvr-studio/passcard/tree/main/examples/cardfeed
+<Cards>
+  <Card
+    title="Source Code"
+    icon={<TbBrandGithub size="1.5rem" />}
+    href="https://github.com/mvr-studio/passcard/tree/main/examples/example-express-passport-prisma"
+  />
+  <Card title="Demo" icon={<TbAppWindow size="1.5rem" />} href="https://cardfeed.netlify.app/" />
+</Cards>

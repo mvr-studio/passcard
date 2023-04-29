@@ -5,7 +5,16 @@ const Tile = ({ imgSrc, name }: Record<string, string>) => {
   return (
     <Card>
       <Box as="img" src={imgSrc} alt={name} css={{ width: '2.5rem' }} />
-      <Text css={{ textAlign: 'center', fontWeight: '$semibold' }}>{name}</Text>
+      <Text
+        css={{
+          textAlign: 'center',
+          fontWeight: '$semibold',
+          '@base': { fontSize: '0.75rem' },
+          '@md': { fontSize: '1rem' }
+        }}
+      >
+        {name}
+      </Text>
     </Card>
   )
 }
@@ -24,7 +33,10 @@ export const HomeSupportedPlatforms = () => {
     >
       <BlurBackground left="-10%" bottom="0" />
       <Flex css={{ '@base': { flexDirection: 'column' }, '@md': { flexDirection: 'row' }, gap: '2rem' }}>
-        <Heading as="h2" css={{ flex: 2, fontFamily: 'sora' }}>
+        <Heading
+          as="h2"
+          css={{ flex: 2, fontFamily: 'sora', '@base': { fontSize: '1.5rem' }, '@md': { fontSize: '1.75rem' } }}
+        >
           Supported Platforms
         </Heading>
         <SimpleGrid columns={{ '@base': 3, '@md': 4 }} css={{ flex: 3, gap: '1rem' }}>

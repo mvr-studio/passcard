@@ -4,7 +4,7 @@ import { TbTools, TbBrandGithub, TbPlugConnected } from 'react-icons/tb'
 export const HomeSelectedFeatures = () => {
   return (
     <Container css={{ paddingTop: '6rem', paddingBottom: '6rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
-      <Heading as="h2" css={{ fontFamily: 'sora' }}>
+      <Heading as="h2" css={{ fontFamily: 'sora', '@base': { fontSize: '1.5rem' }, '@md': { fontSize: '1.75rem' } }}>
         Selected Features
       </Heading>
       <SimpleGrid columns={{ '@base': 1, '@md': 3 }} css={{ marginTop: '1rem', gap: '1rem' }}>

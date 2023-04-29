@@ -9,7 +9,7 @@ const SocialButton = ({ Icon, children, href }) => {
         <Box css={{ width: 'auto' }}>
           <Icon size="1.25rem" />
         </Box>
-        <Text css={{ width: 'auto' }}>{children}</Text>
+        <Text css={{ width: 'auto', '@base': { fontSize: '0.75rem', '@md': { fontSize: '1rem' } } }}>{children}</Text>
       </Button>
     </Box>
   )
@@ -19,7 +19,7 @@ export const HomeSocial = () => {
   return (
     <Box css={{ backgroundColor: 'var(--background-e0)' }}>
       <Container css={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
-        <Heading>Stay Connected</Heading>
+        <Heading css={{ '@base': { fontSize: '1.5rem' }, '@md': { fontSize: '1.75rem' } }}>Stay Connected</Heading>
         <SimpleGrid columns={{ '@base': 1, '@md': 2 }} css={{ marginTop: '1rem', gap: '1rem' }}>
           <Card css={{ padding: '1rem' }}>
             <Heading size="lg">Social</Heading>
