@@ -1,5 +1,5 @@
 import React from 'react'
-import { QRCodeSVG } from 'qrcode.react'
+import QRCode from 'qrcode.react'
 import { AspectRatio, Box, Card } from '..'
 
 type AspectRatioProps = React.ComponentProps<typeof AspectRatio>
@@ -16,7 +16,8 @@ export const AddressQrCode = ({ address, backgroundColor, foregroundColor, ...re
       <AspectRatio ratio={1}>
         <Card css={{ width: '100%', height: '100%', padding: '$sm' }}>
           <Box
-            as={QRCodeSVG}
+            as={QRCode}
+            renderAs="svg"
             value={address}
             css={{ width: '100%', height: '100%' }}
             bgColor={backgroundColor || 'var(--background-e0)'}
