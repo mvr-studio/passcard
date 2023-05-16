@@ -16,6 +16,7 @@ export const {
   Image,
   Content,
   Link,
+  Grid,
   getCssText
 } = createExoUi()
 export { Card } from './Card'
