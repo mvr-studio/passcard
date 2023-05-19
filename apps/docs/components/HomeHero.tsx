@@ -2,14 +2,10 @@ import { Flex, Heading, Text, Container, Button, Stack, Grid, Box, AspectRatio }
 import dynamic from 'next/dynamic'
 import NextLink from 'next/link'
 import { BlurBackground } from './BlurBackground'
-import { useColorScheme } from '../hooks/useColorScheme'
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 
 export const HomeHero = () => {
-  const { colorMode } = useColorScheme()
-  const isDark = colorMode === 'dark'
-
   return (
     <Container
       css={{
