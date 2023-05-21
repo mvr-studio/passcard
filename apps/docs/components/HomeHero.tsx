@@ -2,6 +2,7 @@ import { Flex, Heading, Text, Container, Button, Stack, Grid, Box } from './'
 import dynamic from 'next/dynamic'
 import NextLink from 'next/link'
 import { BlurBackground } from './BlurBackground'
+import NextImage from 'next/image'
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 
@@ -53,7 +54,7 @@ export const HomeHero = () => {
         >
           <ReactPlayer
             controls
-            light="/light.png"
+            light={<NextImage src="/light.png" width={600} height={300} alt="Intro Video" />}
             playing
             url="/intro.mp4"
             style={{ borderRadius: '0.5rem', overflow: 'hidden' }}

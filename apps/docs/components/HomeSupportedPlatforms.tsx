@@ -1,10 +1,11 @@
-import { Box, Card, Container, Flex, Heading, SimpleGrid, Stack, Text } from '.'
+import { Card, Container, Flex, Heading, SimpleGrid, Text } from '.'
 import { BlurBackground } from './BlurBackground'
+import NextImage from 'next/image'
 
 const Tile = ({ imgSrc, name }: Record<string, string>) => {
   return (
     <Card>
-      <Box as="img" src={imgSrc} alt={name} css={{ width: '2.5rem' }} />
+      <NextImage src={imgSrc} width={32} height={32} alt={name} />
       <Text
         css={{
           textAlign: 'center',
