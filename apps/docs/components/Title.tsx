@@ -8,7 +8,7 @@ interface TitleProps {
 
 export const Title = ({ children, description }: TitleProps) => {
   const router = useRouter()
-  const ogImageUrl = `/api/og?title=${children}`
+  const ogImageUrl = `/api/og?title=${children.toString()}`
   const title = `${children} — Passcard`
   const fullPath = `https://passcard.dev${router.asPath}`
   return (
