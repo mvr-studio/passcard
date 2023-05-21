@@ -7,6 +7,7 @@ const year = new Date().getFullYear()
 
 const config: DocsThemeConfig = {
   logo: <NextImage src="/logo.svg" alt="Logo" width={64} height={40} />,
+  head: '',
   chat: {
     link: 'https://discord.gg/VuKGCB3g'
   },

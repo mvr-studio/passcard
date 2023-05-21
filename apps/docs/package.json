@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-sitemap"
   },
   "author": "Tomasz Marciniak <tomek@mvr.studio>",
   "dependencies": {
@@ -14,9 +15,11 @@
     "@mvr-studio/exo-ui": "^0.1.7",
     "@passcard/auth": "*",
     "@passcard/ui": "*",
+    "@vercel/og": "^0.5.4",
     "dayjs": "^1.11.7",
     "dedent": "^0.7.0",
     "next": "^13.0.6",
+    "next-sitemap": "^4.1.3",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
     "prism-react-renderer": "^1.3.5",

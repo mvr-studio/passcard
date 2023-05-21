@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, Container, Button, Stack, Grid, Box, AspectRatio } from './'
+import { Flex, Heading, Text, Container, Button, Stack, Grid, Box } from './'
 import dynamic from 'next/dynamic'
 import NextLink from 'next/link'
 import { BlurBackground } from './BlurBackground'
@@ -51,16 +51,14 @@ export const HomeHero = () => {
             height: 'auto'
           }}
         >
-          <AspectRatio ratio={3} css={{ height: '20rem' }}>
-            <ReactPlayer
-              controls
-              light="/light.png"
-              playing
-              url="/intro.mp4"
-              style={{ borderRadius: '0.5rem', overflow: 'hidden' }}
-              width="100%"
-            />
-          </AspectRatio>
+          <ReactPlayer
+            controls
+            light="/light.png"
+            playing
+            url="/intro.mp4"
+            style={{ borderRadius: '0.5rem', overflow: 'hidden' }}
+            width="100%"
+          />
         </Box>
       </Grid>
     </Container>
