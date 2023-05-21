@@ -9,7 +9,7 @@ const config: DocsThemeConfig = {
   logo: <NextImage src="/logo.svg" alt="Logo" width={64} height={40} />,
   head: '',
   chat: {
-    link: 'https://discord.gg/VuKGCB3g'
+    link: 'https://discord.gg/5x7WHndvVE'
   },
   project: {
     link: 'https://github.com/mvr-studio/passcard'

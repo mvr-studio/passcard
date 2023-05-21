@@ -1,0 +1,35 @@
+import { Steps, Cards, Card } from 'nextra-theme-docs'
+import { ExampleConnectWalletButtonSimple } from '../../components/ExampleConnectWalletButtonSimple'
+import { Examples } from '../../components'
+import { FiTwitter } from 'react-icons/fi'
+import { SiDiscord } from 'react-icons/si'
+
+# Getting Started
+
+<Steps>
+
+### Install dependencies
+
+```sh
+$ yarn add @passcard/auth # for your backend app
+$ yarn add @passcard/ui # for your frontend app
+```
+
+### Set UI part up
+
+<ExampleConnectWalletButtonSimple />
+
+### Set backend part up
+
+See examples we provided for different backend frameworks:
+
+<Examples />
+
+### Join our community
+
+<Cards>
+  <Card href="https://twitter.com/passcard_dev" target="_blank" icon={<FiTwitter size="1.5rem" />} title="Twitter" />
+  <Card href="https://discord.gg/5x7WHndvVE" target="_blank" icon={<SiDiscord size="1.5rem" />} title="Discord" />
+</Cards>
+
+</Steps>

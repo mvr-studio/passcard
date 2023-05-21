@@ -28,7 +28,7 @@ export const HomeSocial = () => {
               <SocialButton Icon={TbBrandTwitter} href="https://twitter.com/passcard_dev">
                 Twitter
               </SocialButton>
-              <SocialButton Icon={TbBrandDiscord} href="https://discord.gg/VuKGCB3g">
+              <SocialButton Icon={TbBrandDiscord} href="https://discord.gg/5x7WHndvVE">
                 Discord
               </SocialButton>
               <SocialButton Icon={TbBrandGithub} href="https://github.com/mvr-studio/passcard">
